@@ -40,7 +40,7 @@
             // 
             this.sign_in.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sign_in.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.sign_in.Location = new System.Drawing.Point(781, 149);
+            this.sign_in.Location = new System.Drawing.Point(787, 149);
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(133, 44);
             this.sign_in.TabIndex = 0;
@@ -52,9 +52,9 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Cambria Math", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.label1.Location = new System.Drawing.Point(12, -52);
+            this.label1.Location = new System.Drawing.Point(27, -52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1055, 162);
+            this.label1.Size = new System.Drawing.Size(1061, 162);
             this.label1.TabIndex = 1;
             this.label1.Text = "Artifact  Manager";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -63,7 +63,7 @@
             // 
             this.sign_up.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sign_up.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.sign_up.Location = new System.Drawing.Point(934, 149);
+            this.sign_up.Location = new System.Drawing.Point(940, 149);
             this.sign_up.Name = "sign_up";
             this.sign_up.Size = new System.Drawing.Size(133, 44);
             this.sign_up.TabIndex = 2;
@@ -76,25 +76,26 @@
             this.label2.Font = new System.Drawing.Font("Cambria", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label2.Location = new System.Drawing.Point(27, 149);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(349, 44);
+            this.label2.Size = new System.Drawing.Size(722, 44);
             this.label2.TabIndex = 3;
             this.label2.Text = "TOP 5 ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listBox1
             // 
+            this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(27, 196);
+            this.listBox1.Location = new System.Drawing.Point(27, 200);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(349, 196);
+            this.listBox1.Size = new System.Drawing.Size(722, 340);
             this.listBox1.TabIndex = 4;
             // 
             // FrontPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 724);
+            this.ClientSize = new System.Drawing.Size(1090, 748);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.sign_up);
