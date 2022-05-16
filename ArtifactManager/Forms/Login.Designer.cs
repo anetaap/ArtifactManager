@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     partial class SignIn
     {
@@ -102,6 +102,7 @@ namespace ArtifactManager
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(685, 39);
             this.password.TabIndex = 7;
+            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // sign_in
             // 
@@ -131,6 +132,7 @@ namespace ArtifactManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1223, 756);
             this.Controls.Add(this.close);
             this.Controls.Add(this.sign_in);

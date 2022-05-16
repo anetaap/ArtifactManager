@@ -1,4 +1,4 @@
-﻿namespace ArtifactManager
+﻿namespace ArtifactManager.Classes
 {
     public class Settings
     {

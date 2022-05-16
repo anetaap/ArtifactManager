@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     partial class AdminFp
     {

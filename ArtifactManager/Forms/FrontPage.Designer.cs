@@ -1,4 +1,4 @@
-﻿namespace ArtifactManager
+﻿namespace ArtifactManager.Forms
 {
     partial class FrontPage
     {
@@ -95,6 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1090, 748);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);

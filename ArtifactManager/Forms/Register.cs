@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
+using ArtifactManager.Classes;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     public partial class SignUp : Form
     {
         private FrontPage _frontPage;
         private SignIn _signIn;
+        private Register _register;
 
         private String _name;
         private String _lastname;
@@ -17,6 +19,9 @@ namespace ArtifactManager
         {
             _frontPage = frontPage;
             _signIn = signIn;
+
+            _register = new Register();
+            
             InitializeComponent();
         }
 
@@ -39,14 +44,23 @@ namespace ArtifactManager
             _email = email.Text;
             _password = password.Text;
             
-            // TODO implement in settings function that checks if email form is correct, else:
-
-            MessageBox.Show(@"Email format is incorrect.");
-            
             // TODO implement in settings function that checks if all values were given, else:
 
             MessageBox.Show(@"Enter all required information!");
             
+            if (!_register.EmailValidation(_email))
+            {
+                MessageBox.Show(@"Email format is incorrect.");
+                return;
+            }
+            if (!_register.PasswordValidation(_password))
+            {
+                MessageBox.Show(@"Invalid password.");
+                return;
+            }
+            
+            // TODO implement username validation function (checks if there is no user with the same username) 
+
             // TODO implement in settings function that add new user to database
             
             Hide();
@@ -58,6 +72,11 @@ namespace ArtifactManager
             Close();
             _signIn.Close();
             _frontPage.Close();
+        }
+
+        private void password_TextChanged(object sender, EventArgs e)
+        {
+            password.UseSystemPasswordChar = true;
         }
     }
 }

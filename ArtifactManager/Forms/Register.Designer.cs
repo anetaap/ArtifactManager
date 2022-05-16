@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     partial class SignUp
     {
@@ -166,10 +166,10 @@ namespace ArtifactManager
             this.password.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.password.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.password.Location = new System.Drawing.Point(263, 556);
-            this.password.Multiline = true;
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(687, 39);
+            this.password.Size = new System.Drawing.Size(687, 27);
             this.password.TabIndex = 14;
+            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // label3
             // 
@@ -197,6 +197,7 @@ namespace ArtifactManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1204, 802);
             this.Controls.Add(this.close);
             this.Controls.Add(this.sign_in);

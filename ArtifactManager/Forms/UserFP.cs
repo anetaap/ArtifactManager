@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     public partial class UserFp : Form
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     public partial class SignIn : Form
     {
@@ -51,6 +51,11 @@ namespace ArtifactManager
         {
             Close();
             _frontPage.Close();
+        }
+
+        private void password_TextChanged(object sender, EventArgs e)
+        {
+            password.UseSystemPasswordChar = true;
         }
     }
 }

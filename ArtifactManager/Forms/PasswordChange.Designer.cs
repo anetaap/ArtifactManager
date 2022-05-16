@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     partial class PasswordChange
     {
@@ -151,6 +151,7 @@ namespace ArtifactManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1166, 559);
             this.Controls.Add(this.back_);
             this.Controls.Add(this.password1);

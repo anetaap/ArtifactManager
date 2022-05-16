@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     public partial class PasswordChange : Form
     {
         private UserProfile _userProfile;
+
+        private String _password;
+        private String _password1;
+        private String _password2;
         public PasswordChange(UserProfile userProfile)
         {
             _userProfile = userProfile;
@@ -18,7 +22,11 @@ namespace ArtifactManager
         }
 
         private void change_passwd_Click(object sender, EventArgs e)
-        {   
+        {
+            _password = password.Text;
+            _password1 = password1.Text;
+            _password2 = password2.Text;
+
             // TODO implement in settings function that checks if current password is correct  
             MessageBox.Show(@"Current password is incorrect.");
             // TODO implement in settings function that checks if the password1 is the same as password2

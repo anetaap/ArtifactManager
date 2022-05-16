@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     partial class UserProfile
     {
@@ -51,9 +51,9 @@ namespace ArtifactManager
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label2.Location = new System.Drawing.Point(257, 383);
+            this.label2.Location = new System.Drawing.Point(257, 388);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(708, 29);
+            this.label2.Size = new System.Drawing.Size(801, 29);
             this.label2.TabIndex = 22;
             this.label2.Text = "Email";
             // 
@@ -61,9 +61,9 @@ namespace ArtifactManager
             // 
             this.login.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.login.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.login.Location = new System.Drawing.Point(257, 288);
+            this.login.Location = new System.Drawing.Point(257, 293);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(708, 29);
+            this.login.Size = new System.Drawing.Size(801, 29);
             this.login.TabIndex = 20;
             this.login.Text = "Username ";
             // 
@@ -71,7 +71,7 @@ namespace ArtifactManager
             // 
             this.lastname.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lastname.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lastname.Location = new System.Drawing.Point(655, 199);
+            this.lastname.Location = new System.Drawing.Point(748, 204);
             this.lastname.Name = "lastname";
             this.lastname.Size = new System.Drawing.Size(310, 29);
             this.lastname.TabIndex = 17;
@@ -81,9 +81,9 @@ namespace ArtifactManager
             // 
             this.name.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.name.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.name.Location = new System.Drawing.Point(257, 199);
+            this.name.Location = new System.Drawing.Point(257, 204);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(338, 29);
+            this.name.Size = new System.Drawing.Size(431, 29);
             this.name.TabIndex = 16;
             this.name.Text = "First name";
             // 
@@ -104,7 +104,7 @@ namespace ArtifactManager
             this.label1.Font = new System.Drawing.Font("Cambria Math", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.label1.Location = new System.Drawing.Point(-22, -39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1276, 162);
+            this.label1.Size = new System.Drawing.Size(1369, 162);
             this.label1.TabIndex = 14;
             this.label1.Text = "Profile details";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,7 +113,7 @@ namespace ArtifactManager
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.close.Location = new System.Drawing.Point(1122, 12);
+            this.close.Location = new System.Drawing.Point(1215, 12);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 29);
             this.close.TabIndex = 24;
@@ -125,7 +125,7 @@ namespace ArtifactManager
             // 
             this.edit.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.edit.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.edit.Location = new System.Drawing.Point(257, 523);
+            this.edit.Location = new System.Drawing.Point(257, 528);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(217, 44);
             this.edit.TabIndex = 25;
@@ -136,7 +136,7 @@ namespace ArtifactManager
             // 
             this.change_passwd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.change_passwd.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.change_passwd.Location = new System.Drawing.Point(506, 523);
+            this.change_passwd.Location = new System.Drawing.Point(527, 528);
             this.change_passwd.Name = "change_passwd";
             this.change_passwd.Size = new System.Drawing.Size(217, 44);
             this.change_passwd.TabIndex = 26;
@@ -148,7 +148,7 @@ namespace ArtifactManager
             // 
             this.remove.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.remove.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.remove.Location = new System.Drawing.Point(748, 523);
+            this.remove.Location = new System.Drawing.Point(813, 528);
             this.remove.Name = "remove";
             this.remove.Size = new System.Drawing.Size(217, 44);
             this.remove.TabIndex = 27;
@@ -158,6 +158,8 @@ namespace ArtifactManager
             // 
             // name_
             // 
+            this.name_.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.name_.BackColor = System.Drawing.Color.White;
             this.name_.Location = new System.Drawing.Point(257, 228);
             this.name_.Name = "name_";
             this.name_.Size = new System.Drawing.Size(680, 39);
@@ -165,30 +167,37 @@ namespace ArtifactManager
             // 
             // lastname_
             // 
-            this.lastname_.Location = new System.Drawing.Point(270, 228);
+            this.lastname_.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lastname_.BackColor = System.Drawing.Color.White;
+            this.lastname_.Location = new System.Drawing.Point(350, 228);
             this.lastname_.Name = "lastname_";
             this.lastname_.Size = new System.Drawing.Size(680, 39);
             this.lastname_.TabIndex = 29;
             // 
             // username
             // 
+            this.username.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.username.BackColor = System.Drawing.Color.White;
             this.username.Location = new System.Drawing.Point(257, 317);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(680, 39);
+            this.username.Size = new System.Drawing.Size(773, 39);
             this.username.TabIndex = 30;
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(257, 412);
+            this.email.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.email.BackColor = System.Drawing.Color.White;
+            this.email.Location = new System.Drawing.Point(257, 431);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(680, 39);
+            this.email.Size = new System.Drawing.Size(773, 39);
             this.email.TabIndex = 31;
             // 
             // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 821);
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.ClientSize = new System.Drawing.Size(1302, 831);
             this.Controls.Add(this.email);
             this.Controls.Add(this.username);
             this.Controls.Add(this.lastname_);

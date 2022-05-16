@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace ArtifactManager
+namespace ArtifactManager.Forms
 {
     public partial class AdminFp : Form
     {
