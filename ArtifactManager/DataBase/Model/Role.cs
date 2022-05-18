@@ -9,7 +9,7 @@ namespace ArtifactManager.DataBase.Model
         {
             Permissions = new HashSet<Permission>();
         }
-        
+
         public int RoleId { set; get; }
         public String RoleName { set; get; }
         

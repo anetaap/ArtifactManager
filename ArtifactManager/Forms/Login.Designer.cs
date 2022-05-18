@@ -98,9 +98,8 @@ namespace ArtifactManager.Forms
             this.password.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.password.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.password.Location = new System.Drawing.Point(258, 364);
-            this.password.Multiline = true;
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(685, 39);
+            this.password.Size = new System.Drawing.Size(685, 27);
             this.password.TabIndex = 7;
             this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 

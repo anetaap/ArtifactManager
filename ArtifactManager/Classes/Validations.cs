@@ -1,18 +1,29 @@
 ﻿using System;
 using System.Net.Mail;
+using System.Text;
 using System.Text.RegularExpressions;
+using ArtifactManager.DataBase.Context;
+using System.Security.Cryptography;
 
 namespace ArtifactManager.Classes
 {
     public class Validations
     {
-        private String _username;
-        private String _password;
-        public Validations()
-        {
-        }
+        private string _username;
+        private string _password;
 
-        public bool PasswordValidation(String password)
+        public string PasswordHash(string password)
+        {
+            using (SHA1 sha1Hash = SHA1.Create())
+            {
+                byte[] sourceBytes = Encoding.UTF8.GetBytes(password);
+                byte[] hashBytes = sha1Hash.ComputeHash(sourceBytes);
+                string passwordhash = BitConverter.ToString(hashBytes).Replace("-",String.Empty);
+
+                return passwordhash;
+            }
+        }
+        public bool PasswordValidation(string password)
         {
             var hasNumber = new Regex(@"[0-9]+");
             var hasUpperChar = new Regex(@"[A-Z]+");
@@ -26,6 +37,7 @@ namespace ArtifactManager.Classes
 
         public bool PasswordMatchValidation(String password)
         {
+            password = PasswordHash(password);
             if (_password == password) return true;
             return false;
         }
@@ -35,20 +47,21 @@ namespace ArtifactManager.Classes
             if (password1 == password2) return true;
             return false;
         }
-
-        // TODO implement function (checks if user with that username exists)
-        public bool UsernameValidation(String username)
+        
+        public bool UsernameValidation(string username)
         {
-            return true;
+            if (MyDbContextFunctions.UserExist(username)) return true;
+            return false;
         }
         
         public bool EmailValidation(String email)
         {
+            if (email == "") return false;
             try
             {
                 MailAddress emailaddress = new MailAddress(email);
-                
-                // TODO implement function that checks if there is no user with the same e-mail address 
+
+                if (MyDbContextFunctions.EmailExist(email)) return false;
                 
                 return true;
             }
@@ -57,16 +70,25 @@ namespace ArtifactManager.Classes
                 return false;
             }
         }
-        
-        // TODO implement Login function that collects information about logged user 
-        public void Login(int id)
+
+        public bool CompletenessValidation(string[] information)
         {
-            
+            foreach (string inf in information)
+            {
+                if (inf == "") return false;
+            }
+            return true;
+        }
+        
+        public void Login(string username)
+        {
+            _username = username;
+            _password = MyDbContextFunctions.GetPassword(_username);
         }
         public void Logout()
         {
-            _username = null;
-            _password = null;
+            _username = "";
+            _password = "";
         }
     }
 }

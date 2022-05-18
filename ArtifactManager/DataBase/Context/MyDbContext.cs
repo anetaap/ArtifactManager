@@ -15,5 +15,7 @@ namespace ArtifactManager.DataBase.Context
         public DbSet<Permission> Permissions { set; get; }
         public DbSet<Category> Categories { set; get; }
         public DbSet<Role> Roles { set; get; }
+        // public DbSet<ElementAttribute> ElementAttributes { set; get; }
+        // public DbSet<CategoryAttribute> CategoryAttributes { set; get; }
     }
 }

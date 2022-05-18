@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ArtifactManager.Classes;
 
 namespace ArtifactManager.Forms
 {
@@ -8,12 +9,14 @@ namespace ArtifactManager.Forms
         private FrontPage _frontPage;
         private AdminFp _adminFp;
         private UserFp _userFp;
+        private Validations _validations;
         
-        private String _username;
-        private String _password;
+        private string _username;
+        private string _password;
         public SignIn(FrontPage frontPage)
         {
             _frontPage = frontPage;
+            _validations = new Validations();
             InitializeComponent();
         }
 
@@ -32,19 +35,31 @@ namespace ArtifactManager.Forms
         {
             _username = username.Text;
             _password = password.Text;
-            
-            // TODO implement in settings function validating if user exists
 
-            MessageBox.Show(@"User do not exist, check correctness of your data or register first.");
+            if (!_validations.UsernameValidation(_username))
+            {
+                MessageBox.Show(@"User do not exist, check correctness of your data or register first.");
+            }
+
+            if (_validations.PasswordMatchValidation(_password))
+            {
+                // TODO implement in validations function that checks if user is admin
+                // if admin:
+                // _adminFp = new AdminFP(_frontPage, _validations);
+                // else:
+                _userFp = new UserFp(_frontPage, _validations);
+                _validations.Login(_username);
             
-            // TODO implement in settings function that checks if user is admin
-            // if admin:
-            // _adminFp = new AdminFP();
-            // else:
-            _userFp = new UserFp(_frontPage);
-            
-            Hide();
-            _userFp.Show();
+                Hide();
+                _userFp.Show();
+
+                username.Text = "";
+                password.Text = "";
+            }
+            else
+            {
+                MessageBox.Show(@"Incorrect password.");
+            }
         }
 
         private void close_Click(object sender, EventArgs e)

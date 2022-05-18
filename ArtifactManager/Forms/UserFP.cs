@@ -10,12 +10,12 @@ namespace ArtifactManager.Forms
         private UserProfile _userProfile;
         private Validations _validations;
         private Catalog _catalog;
-        public UserFp(FrontPage frontPage)
+        public UserFp(FrontPage frontPage, Validations validations)
         {
             _frontPage = frontPage;
-            _validations = new Validations();
+            _validations = validations;
             _catalog = new Catalog(_frontPage, this);
-            _userProfile = new UserProfile(_frontPage, this);
+            _userProfile = new UserProfile(_frontPage, this, _validations);
             InitializeComponent();
         }
 

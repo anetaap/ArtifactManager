@@ -12,11 +12,11 @@ namespace ArtifactManager.Forms
         private String _password;
         private String _password1;
         private String _password2;
-        public PasswordChange(UserProfile userProfile)
+        public PasswordChange(UserProfile userProfile, Validations validations)
         {
             _userProfile = userProfile;
 
-            _validations = new Validations();
+            _validations = validations;
             InitializeComponent();
         }
 
@@ -49,7 +49,7 @@ namespace ArtifactManager.Forms
                 return;
             }
             
-            // TODO implement in settings function that changes the password in database
+            // TODO implement in MyDbContextFunctions function that changes the password in database
             
             MessageBox.Show(@"The password changed correctly.");
             

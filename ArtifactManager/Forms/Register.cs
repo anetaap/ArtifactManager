@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ArtifactManager.Classes;
+using ArtifactManager.DataBase.Context;
 
 namespace ArtifactManager.Forms
 {
@@ -10,11 +11,12 @@ namespace ArtifactManager.Forms
         private SignIn _signIn;
         private Validations _validations;
 
-        private String _name;
-        private String _lastname;
-        private String _username;
-        private String _email;
-        private String _password;
+        private string _name;
+        private string _lastname;
+        private string _username;
+        private string _email;
+        private string _password;
+        private string[] _information;
         public SignUp(FrontPage frontPage, SignIn signIn)
         {
             _frontPage = frontPage;
@@ -43,10 +45,14 @@ namespace ArtifactManager.Forms
             _username = username.Text;
             _email = email.Text;
             _password = password.Text;
-            
-            // TODO implement in settings function that checks if all values were given, else:
 
-            MessageBox.Show(@"Enter all required information!");
+            _information = new [] {_name, _lastname, _username, _email, _password};
+            
+            if (!_validations.CompletenessValidation(_information))
+            {
+                MessageBox.Show(@"Enter all required information!");
+                return;
+            }
             
             if (!_validations.EmailValidation(_email))
             {
@@ -59,10 +65,15 @@ namespace ArtifactManager.Forms
                 return;
             }
             
-            // TODO implement username validation function (checks if there is no user with the same username) 
-
-            // TODO implement in settings function that add new user to database
+            if (_validations.UsernameValidation(_username))
+            {
+                MessageBox.Show(@"User with that username already exists.");
+                return;
+            }
             
+            _password = _validations.PasswordHash(_password);
+            MyDbContextFunctions.AddUser(_username, _name, _lastname, _email, _password);
+
             Hide();
             _signIn.Show();
         }

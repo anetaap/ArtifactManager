@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ArtifactManager.Classes;
 
 namespace ArtifactManager.Forms
 {
@@ -8,13 +9,13 @@ namespace ArtifactManager.Forms
         private FrontPage _frontPage;
         private UserFp _userFp;
         private PasswordChange _passwordChange;
-        public UserProfile(FrontPage frontPage, UserFp userFp)
+        private Validations _validations;
+        public UserProfile(FrontPage frontPage, UserFp userFp, Validations validations)
         {
             _frontPage = frontPage;
             _userFp = userFp;
-            
-            _passwordChange = new PasswordChange(this);
-            
+            _validations = validations;
+
             InitializeComponent();
         }
 
@@ -37,7 +38,7 @@ namespace ArtifactManager.Forms
 
         private void remove_Click(object sender, EventArgs e)
         {
-            // TODO implement in setting function that delete user from database and all related with it information
+            // TODO implement in MyDbContextFunctions function that delete user from database and all related with it information
             
             Close();
             _userFp.Close();
@@ -46,6 +47,8 @@ namespace ArtifactManager.Forms
 
         private void change_passwd_Click(object sender, EventArgs e)
         {
+            _passwordChange = new PasswordChange(this, _validations);
+            
             Hide();
             _passwordChange.Show();
         }
