@@ -56,12 +56,35 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Classes\Register.cs" />
+        <Compile Include="Classes\Validations.cs" />
         <Compile Include="Classes\Settings.cs" />
         <Compile Include="DataBase\Context\MyDbContext.cs" />
+        <Compile Include="DataBase\Context\MyDbContextFunctions.cs" />
         <Compile Include="DataBase\Model\Category.cs" />
         <Compile Include="DataBase\Model\Element.cs" />
+        <Compile Include="DataBase\Model\Permission.cs" />
+        <Compile Include="DataBase\Model\Role.cs" />
         <Compile Include="DataBase\Model\User.cs" />
+        <Compile Include="Forms\AddEditArtifact.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\AddEditArtifact.Designer.cs">
+          <DependentUpon>AddEditArtifact.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Forms\Catalog.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\Catalog.Designer.cs">
+          <DependentUpon>Catalog.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Migrations\202205180924433_user.cs" />
+        <Compile Include="Migrations\202205180924433_user.Designer.cs">
+          <DependentUpon>202205180924433_user.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Migrations\202205180948287_db.cs" />
+        <Compile Include="Migrations\202205180948287_db.Designer.cs">
+          <DependentUpon>202205180948287_db.cs</DependentUpon>
+        </Compile>
         <Compile Include="Migrations\Configuration.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +130,15 @@
         <Compile Include="Forms\UserProfile.Designer.cs">
           <DependentUpon>UserProfile.cs</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="Forms\Catalog.resx">
+          <DependentUpon>Catalog.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Migrations\202205180924433_user.resx">
+          <DependentUpon>202205180924433_user.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Migrations\202205180948287_db.resx">
+          <DependentUpon>202205180948287_db.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>

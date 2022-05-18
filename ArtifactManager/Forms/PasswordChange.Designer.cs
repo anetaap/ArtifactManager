@@ -81,10 +81,10 @@ namespace ArtifactManager.Forms
             this.password2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.password2.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.password2.Location = new System.Drawing.Point(231, 378);
-            this.password2.Multiline = true;
             this.password2.Name = "password2";
-            this.password2.Size = new System.Drawing.Size(687, 39);
+            this.password2.Size = new System.Drawing.Size(687, 27);
             this.password2.TabIndex = 19;
+            this.password2.TextChanged += new System.EventHandler(this.password2_TextChanged);
             // 
             // label3
             // 
@@ -101,10 +101,10 @@ namespace ArtifactManager.Forms
             this.password.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.password.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.password.Location = new System.Drawing.Point(231, 187);
-            this.password.Multiline = true;
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(687, 39);
+            this.password.Size = new System.Drawing.Size(687, 27);
             this.password.TabIndex = 22;
+            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // label2
             // 
@@ -121,10 +121,10 @@ namespace ArtifactManager.Forms
             this.password1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.password1.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.password1.Location = new System.Drawing.Point(231, 289);
-            this.password1.Multiline = true;
             this.password1.Name = "password1";
-            this.password1.Size = new System.Drawing.Size(687, 39);
+            this.password1.Size = new System.Drawing.Size(687, 27);
             this.password1.TabIndex = 24;
+            this.password1.TextChanged += new System.EventHandler(this.password1_TextChanged);
             // 
             // label4
             // 

@@ -16,9 +16,9 @@ namespace ArtifactManager.DataBase.Model
         public virtual List<Category> Categories { get; set; }
     }
 
-    public class Admin
-    {
-        public String Username { set; get; }
-        public String Password { set; get; }
-    }
+    // public class Admin
+    // {
+    //     public String Username { set; get; }
+    //     public String Password { set; get; }
+    // }
 }

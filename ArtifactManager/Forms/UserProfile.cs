@@ -46,8 +46,6 @@ namespace ArtifactManager.Forms
 
         private void change_passwd_Click(object sender, EventArgs e)
         {
-            // TODO implement in setting function that changes the password 
-            
             Hide();
             _passwordChange.Show();
         }

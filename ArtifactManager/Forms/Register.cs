@@ -8,7 +8,7 @@ namespace ArtifactManager.Forms
     {
         private FrontPage _frontPage;
         private SignIn _signIn;
-        private Register _register;
+        private Validations _validations;
 
         private String _name;
         private String _lastname;
@@ -20,7 +20,7 @@ namespace ArtifactManager.Forms
             _frontPage = frontPage;
             _signIn = signIn;
 
-            _register = new Register();
+            _validations = new Validations();
             
             InitializeComponent();
         }
@@ -48,12 +48,12 @@ namespace ArtifactManager.Forms
 
             MessageBox.Show(@"Enter all required information!");
             
-            if (!_register.EmailValidation(_email))
+            if (!_validations.EmailValidation(_email))
             {
                 MessageBox.Show(@"Email format is incorrect.");
                 return;
             }
-            if (!_register.PasswordValidation(_password))
+            if (!_validations.PasswordValidation(_password))
             {
                 MessageBox.Show(@"Invalid password.");
                 return;
