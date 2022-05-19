@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ArtifactManager.Classes;
+using ArtifactManager.DataBase.Context;
 
 namespace ArtifactManager.Forms
 {
@@ -9,9 +10,10 @@ namespace ArtifactManager.Forms
         private UserProfile _userProfile;
         private Validations _validations;
 
-        private String _password;
-        private String _password1;
-        private String _password2;
+        private string _password;
+        private string _password1;
+        private string _password2;
+        private string _newpassword;
         public PasswordChange(UserProfile userProfile, Validations validations)
         {
             _userProfile = userProfile;
@@ -43,14 +45,14 @@ namespace ArtifactManager.Forms
                 return;
             }
 
-            if (!_validations.PasswordMatchValidation(_password1, _password2))
+            if (!_validations.PasswordsMatchValidation(_password1, _password2))
             {
                 MessageBox.Show(@"The passwords do not match.");
                 return;
             }
-            
-            // TODO implement in MyDbContextFunctions function that changes the password in database
-            
+
+            _newpassword = _validations.PasswordHash(_password1);
+            _validations.ChangePassword(_newpassword);
             MessageBox.Show(@"The password changed correctly.");
             
             Hide();

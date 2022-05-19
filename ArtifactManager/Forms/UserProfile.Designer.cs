@@ -31,61 +31,23 @@ namespace ArtifactManager.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.login = new System.Windows.Forms.Label();
-            this.lastname = new System.Windows.Forms.Label();
-            this.name = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.close = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.change_passwd = new System.Windows.Forms.Button();
             this.remove = new System.Windows.Forms.Button();
-            this.name_ = new System.Windows.Forms.Label();
-            this.lastname_ = new System.Windows.Forms.Label();
-            this.username = new System.Windows.Forms.Label();
-            this.email = new System.Windows.Forms.Label();
+            this.email = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.username = new System.Windows.Forms.TextBox();
+            this.login = new System.Windows.Forms.Label();
+            this.lastname_ = new System.Windows.Forms.TextBox();
+            this.name_ = new System.Windows.Forms.TextBox();
+            this.lastname = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.Label();
+            this.save = new System.Windows.Forms.Button();
+            this.discard = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label2.Location = new System.Drawing.Point(257, 388);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(801, 29);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Email";
-            // 
-            // login
-            // 
-            this.login.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.login.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.login.Location = new System.Drawing.Point(257, 293);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(801, 29);
-            this.login.TabIndex = 20;
-            this.login.Text = "Username ";
-            // 
-            // lastname
-            // 
-            this.lastname.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lastname.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lastname.Location = new System.Drawing.Point(748, 204);
-            this.lastname.Name = "lastname";
-            this.lastname.Size = new System.Drawing.Size(310, 29);
-            this.lastname.TabIndex = 17;
-            this.lastname.Text = "Last name";
-            // 
-            // name
-            // 
-            this.name.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.name.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.name.Location = new System.Drawing.Point(257, 204);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(431, 29);
-            this.name.TabIndex = 16;
-            this.name.Text = "First name";
             // 
             // back
             // 
@@ -131,6 +93,7 @@ namespace ArtifactManager.Forms
             this.edit.TabIndex = 25;
             this.edit.Text = "Edit";
             this.edit.UseVisualStyleBackColor = true;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // change_passwd
             // 
@@ -156,41 +119,109 @@ namespace ArtifactManager.Forms
             this.remove.UseVisualStyleBackColor = true;
             this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
-            // name_
+            // email
             // 
-            this.name_.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.name_.BackColor = System.Drawing.Color.White;
-            this.name_.Location = new System.Drawing.Point(257, 228);
-            this.name_.Name = "name_";
-            this.name_.Size = new System.Drawing.Size(680, 39);
-            this.name_.TabIndex = 28;
+            this.email.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.email.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.email.Location = new System.Drawing.Point(257, 427);
+            this.email.Multiline = true;
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(773, 39);
+            this.email.TabIndex = 35;
             // 
-            // lastname_
+            // label2
             // 
-            this.lastname_.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lastname_.BackColor = System.Drawing.Color.White;
-            this.lastname_.Location = new System.Drawing.Point(350, 228);
-            this.lastname_.Name = "lastname_";
-            this.lastname_.Size = new System.Drawing.Size(680, 39);
-            this.lastname_.TabIndex = 29;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label2.Location = new System.Drawing.Point(257, 395);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(684, 29);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Email";
             // 
             // username
             // 
             this.username.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.username.BackColor = System.Drawing.Color.White;
-            this.username.Location = new System.Drawing.Point(257, 317);
+            this.username.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.username.Location = new System.Drawing.Point(257, 341);
+            this.username.Multiline = true;
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(773, 39);
-            this.username.TabIndex = 30;
+            this.username.TabIndex = 33;
             // 
-            // email
+            // login
             // 
-            this.email.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.email.BackColor = System.Drawing.Color.White;
-            this.email.Location = new System.Drawing.Point(257, 431);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(773, 39);
-            this.email.TabIndex = 31;
+            this.login.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.login.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.login.Location = new System.Drawing.Point(257, 299);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(684, 29);
+            this.login.TabIndex = 32;
+            this.login.Text = "Username ";
+            // 
+            // lastname_
+            // 
+            this.lastname_.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lastname_.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.lastname_.Location = new System.Drawing.Point(350, 243);
+            this.lastname_.Multiline = true;
+            this.lastname_.Name = "lastname_";
+            this.lastname_.Size = new System.Drawing.Size(680, 39);
+            this.lastname_.TabIndex = 31;
+            // 
+            // name_
+            // 
+            this.name_.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.name_.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.name_.Location = new System.Drawing.Point(257, 243);
+            this.name_.Multiline = true;
+            this.name_.Name = "name_";
+            this.name_.Size = new System.Drawing.Size(680, 39);
+            this.name_.TabIndex = 30;
+            // 
+            // lastname
+            // 
+            this.lastname.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lastname.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lastname.Location = new System.Drawing.Point(656, 211);
+            this.lastname.Name = "lastname";
+            this.lastname.Size = new System.Drawing.Size(374, 29);
+            this.lastname.TabIndex = 29;
+            this.lastname.Text = "Last name";
+            // 
+            // name
+            // 
+            this.name.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.name.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.name.Location = new System.Drawing.Point(257, 211);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(314, 29);
+            this.name.TabIndex = 28;
+            this.name.Text = "First name";
+            // 
+            // save
+            // 
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.save.Location = new System.Drawing.Point(257, 603);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(773, 43);
+            this.save.TabIndex = 36;
+            this.save.Text = "Save Changes";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // discard
+            // 
+            this.discard.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.discard.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.discard.Location = new System.Drawing.Point(257, 665);
+            this.discard.Name = "discard";
+            this.discard.Size = new System.Drawing.Size(773, 43);
+            this.discard.TabIndex = 37;
+            this.discard.Text = "Discard Changes";
+            this.discard.UseVisualStyleBackColor = true;
+            this.discard.Click += new System.EventHandler(this.discard_Click);
             // 
             // UserProfile
             // 
@@ -198,30 +229,37 @@ namespace ArtifactManager.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1302, 831);
+            this.Controls.Add(this.discard);
+            this.Controls.Add(this.save);
             this.Controls.Add(this.email);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.username);
+            this.Controls.Add(this.login);
             this.Controls.Add(this.lastname_);
             this.Controls.Add(this.name_);
+            this.Controls.Add(this.lastname);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.remove);
             this.Controls.Add(this.change_passwd);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.close);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.login);
-            this.Controls.Add(this.lastname);
-            this.Controls.Add(this.name);
             this.Controls.Add(this.back);
             this.Controls.Add(this.label1);
             this.Name = "UserProfile";
             this.Text = "UserProfile";
             this.Load += new System.EventHandler(this.UserProfile_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
-        private System.Windows.Forms.Label name_;
-        private System.Windows.Forms.Label lastname_;
-        private System.Windows.Forms.Label username;
-        private System.Windows.Forms.Label email;
+        private System.Windows.Forms.Button discard;
+
+        private System.Windows.Forms.Button save;
+
+        private System.Windows.Forms.TextBox name_;
+        private System.Windows.Forms.TextBox lastname_;
+        private System.Windows.Forms.TextBox username;
+        private System.Windows.Forms.TextBox email;
 
         private System.Windows.Forms.Button remove;
 

@@ -11,6 +11,8 @@ namespace ArtifactManager.Classes
     {
         private string _username;
         private string _password;
+        public string Username { get => _username; }
+        public string Password { get => _password; }
 
         public string PasswordHash(string password)
         {
@@ -35,14 +37,14 @@ namespace ArtifactManager.Classes
             return isValidated;
         }
 
-        public bool PasswordMatchValidation(String password)
+        public bool PasswordMatchValidation(string password)
         {
-            password = PasswordHash(password);
-            if (_password == password) return true;
+            string passwordHash = PasswordHash(password);
+            if (_password == passwordHash) return true;
             return false;
         }
 
-        public bool PasswordMatchValidation(String password1, String password2)
+        public bool PasswordsMatchValidation(string password1, string password2)
         {
             if (password1 == password2) return true;
             return false;
@@ -70,6 +72,23 @@ namespace ArtifactManager.Classes
                 return false;
             }
         }
+        public bool EmailChangeValidation(String email)
+        {
+            if (email == "") return false;
+            try
+            {
+                MailAddress emailaddress = new MailAddress(email);
+
+                if (MyDbContextFunctions.EmailOfUser(email) == _username) return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+
+            return false;
+        }
+        
 
         public bool CompletenessValidation(string[] information)
         {
@@ -78,6 +97,29 @@ namespace ArtifactManager.Classes
                 if (inf == "") return false;
             }
             return true;
+        }
+
+        public bool AdminValidation(string username)
+        {
+            if (MyDbContextFunctions.IsAdmin(username)) return true;
+            return false;
+        }
+
+        public void ChangePassword(string password)
+        {
+            _password = password;
+            MyDbContextFunctions.ChangePassword(_username, _password);
+        }
+
+        public void ChangeInformation(string name, string lastname, string email)
+        {
+            MyDbContextFunctions.ChangeInformation(_username, name, lastname, email);
+        }
+
+        public void RemoveUser(string username)
+        {
+            MyDbContextFunctions.RemoveUser(username);
+            Logout();
         }
         
         public void Login(string username)

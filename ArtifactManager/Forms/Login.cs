@@ -40,19 +40,21 @@ namespace ArtifactManager.Forms
             {
                 MessageBox.Show(@"User do not exist, check correctness of your data or register first.");
             }
-
+            _validations.Login(_username);
             if (_validations.PasswordMatchValidation(_password))
             {
-                // TODO implement in validations function that checks if user is admin
-                // if admin:
-                // _adminFp = new AdminFP(_frontPage, _validations);
-                // else:
-                _userFp = new UserFp(_frontPage, _validations);
-                _validations.Login(_username);
-            
-                Hide();
-                _userFp.Show();
-
+                if (_validations.AdminValidation(_username))
+                {
+                    _adminFp = new AdminFp(_frontPage, _validations);
+                    Hide();
+                    _adminFp.Show();
+                }
+                else
+                {
+                    _userFp = new UserFp(_frontPage, _validations);
+                    Hide();
+                    _userFp.Show();
+                }
                 username.Text = "";
                 password.Text = "";
             }
