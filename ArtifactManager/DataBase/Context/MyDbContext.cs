@@ -17,5 +17,8 @@ namespace ArtifactManager.DataBase.Context
         public DbSet<CategoryAttribute> CategoryAttributes { set; get; }
         public DbSet<Role> Roles { set; get; }
         public DbSet<Artifact> Artifacts { set; get; }
+        public DbSet<UserArtifactAttribute> UserArtifactAttributes { set; get; }
+        public DbSet<UserCategory> UserCategories { set; get; }
+        public DbSet<UserCategoryAttribute> UserCategoryAttributes { set; get; }
     }
 }

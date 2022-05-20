@@ -9,9 +9,6 @@ namespace ArtifactManager.DataBase.Model
         public int CategoryId { set; get; }
         public virtual Category Category { set; get; }
         public virtual List<ElementAttribute> ElementAttributes { get; set; }
-        
-        // id of Category that becomes element in other category
-        // public virtual Category Category2 { set; get; }
     }
 
     public class ElementAttribute

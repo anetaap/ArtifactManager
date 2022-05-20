@@ -37,7 +37,7 @@ namespace ArtifactManager.Forms
             this.category = new System.Windows.Forms.ComboBox();
             this.login = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.artifact = new System.Windows.Forms.ComboBox();
+            this.mycategory = new System.Windows.Forms.ComboBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.add = new System.Windows.Forms.Button();
             this.remove = new System.Windows.Forms.Button();
@@ -105,16 +105,16 @@ namespace ArtifactManager.Forms
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(963, 29);
             this.label2.TabIndex = 31;
-            this.label2.Text = "Artifact";
+            this.label2.Text = "Added Categories";
             // 
-            // artifact
+            // mycategory
             // 
-            this.artifact.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.artifact.FormattingEnabled = true;
-            this.artifact.Location = new System.Drawing.Point(140, 267);
-            this.artifact.Name = "artifact";
-            this.artifact.Size = new System.Drawing.Size(963, 24);
-            this.artifact.TabIndex = 30;
+            this.mycategory.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.mycategory.FormattingEnabled = true;
+            this.mycategory.Location = new System.Drawing.Point(140, 267);
+            this.mycategory.Name = "mycategory";
+            this.mycategory.Size = new System.Drawing.Size(963, 24);
+            this.mycategory.TabIndex = 30;
             // 
             // checkedListBox1
             // 
@@ -169,7 +169,7 @@ namespace ArtifactManager.Forms
             this.Controls.Add(this.edit);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.artifact);
+            this.Controls.Add(this.mycategory);
             this.Controls.Add(this.login);
             this.Controls.Add(this.category);
             this.Controls.Add(this.close);
@@ -189,7 +189,7 @@ namespace ArtifactManager.Forms
 
         private System.Windows.Forms.Label login;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox artifact;
+        private System.Windows.Forms.ComboBox mycategory;
 
         private System.Windows.Forms.ComboBox category;
 

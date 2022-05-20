@@ -59,14 +59,15 @@
         <Compile Include="Classes\Validations.cs" />
         <Compile Include="DataBase\Context\MyDbContext.cs" />
         <Compile Include="DataBase\Context\MyDbContextFunctions.cs" />
-        <Compile Include="DataBase\Model\ArtifactElement.cs" />
+        <Compile Include="DataBase\Model\UserArtifactAttribute.cs" />
         <Compile Include="DataBase\Model\Category.cs" />
         <Compile Include="DataBase\Model\Element.cs" />
-        <Compile Include="DataBase\Model\Artifact.cs" />
+        <Compile Include="DataBase\Model\UserArtifact.cs" />
         <Compile Include="DataBase\Model\Permission.cs" />
-        <Compile Include="DataBase\Model\ArtifactCategory.cs" />
+        <Compile Include="DataBase\Model\UserCategoryAttribute.cs" />
         <Compile Include="DataBase\Model\Role.cs" />
         <Compile Include="DataBase\Model\User.cs" />
+        <Compile Include="DataBase\Model\UserCategory.cs" />
         <Compile Include="Forms\AddEditArtifact.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -79,17 +80,9 @@
         <Compile Include="Forms\Catalog.Designer.cs">
           <DependentUpon>Catalog.cs</DependentUpon>
         </Compile>
-        <Compile Include="Migrations\202205200906267_new.cs" />
-        <Compile Include="Migrations\202205200906267_new.Designer.cs">
-          <DependentUpon>202205200906267_new.cs</DependentUpon>
-        </Compile>
-        <Compile Include="Migrations\202205200921054_e.cs" />
-        <Compile Include="Migrations\202205200921054_e.Designer.cs">
-          <DependentUpon>202205200921054_e.cs</DependentUpon>
-        </Compile>
-        <Compile Include="Migrations\202205201127250_artifacts.cs" />
-        <Compile Include="Migrations\202205201127250_artifacts.Designer.cs">
-          <DependentUpon>202205201127250_artifacts.cs</DependentUpon>
+        <Compile Include="Migrations\202205202022467_new.cs" />
+        <Compile Include="Migrations\202205202022467_new.Designer.cs">
+          <DependentUpon>202205202022467_new.cs</DependentUpon>
         </Compile>
         <Compile Include="Migrations\Configuration.cs" />
         <Compile Include="Program.cs" />
@@ -139,14 +132,8 @@
         <EmbeddedResource Include="Forms\Catalog.resx">
           <DependentUpon>Catalog.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="Migrations\202205200906267_new.resx">
-          <DependentUpon>202205200906267_new.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="Migrations\202205200921054_e.resx">
-          <DependentUpon>202205200921054_e.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="Migrations\202205201127250_artifacts.resx">
-          <DependentUpon>202205201127250_artifacts.cs</DependentUpon>
+        <EmbeddedResource Include="Migrations\202205202022467_new.resx">
+          <DependentUpon>202205202022467_new.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
