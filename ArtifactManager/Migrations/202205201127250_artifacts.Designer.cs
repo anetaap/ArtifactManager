@@ -7,13 +7,13 @@ namespace ArtifactManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class xd : IMigrationMetadata
+    public sealed partial class artifacts : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(xd));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(artifacts));
         
         string IMigrationMetadata.Id
         {
-            get { return "202205182103420_xd"; }
+            get { return "202205201127250_artifacts"; }
         }
         
         string IMigrationMetadata.Source

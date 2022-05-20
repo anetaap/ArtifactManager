@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ArtifactManager.DataBase.Model;
 
@@ -17,9 +18,9 @@ namespace ArtifactManager.DataBase.Context
                         .Single(u => u.Username == username);
                     if (user != null) return true;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-
+                    return false; 
                 }
                 return false;  
             }
@@ -38,7 +39,7 @@ namespace ArtifactManager.DataBase.Context
                 }
                 catch (Exception)
                 {
-
+                    return false; 
                 }
                 return false;  
             }
@@ -56,9 +57,8 @@ namespace ArtifactManager.DataBase.Context
                 }
                 catch (Exception)
                 {
-
+                    return null; 
                 }
-                return null;  
             }
         }
 
@@ -161,9 +161,91 @@ namespace ArtifactManager.DataBase.Context
                 db.SaveChanges();
             }
         }
+        
+        // function that returns all the users categories
+        public static List<Category> GetUserCategories(string username)
+        {
+            List<Category> categories;
+            using (MyDbContext db = new MyDbContext())
+            {
+                var user = db.Users
+                    .Single(u => u.Username == username);
 
+                int id = user.UserId;
+                
+                try
+                {
+                    categories = db.Categories
+                        .Where(category => category.UserId == id).ToList();
+                    return categories;
+                }
+                catch (Exception )
+                {
+                    return null;
+                }
+            }
+        }
+        
+        // function that adds new Category 
+        public static void AddCategory(string categoryName, int userId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                db.Categories.Add(new Category()
+                {
+                    UserId = userId,
+                    CategoryName = categoryName
+                });
+                db.SaveChanges();
+            }
+        }
+        
+        // function that adds Attribute to Category
+        public static void AddCategoryAttribute(string name, string type, int categoryId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                db.CategoryAttributes.Add(new CategoryAttribute()
+                {
+                    CategoryAttributeName = name,
+                    CategoryAttributeType = type,
+                    CategoryId = categoryId
+                });
+                db.SaveChanges();
+            }
+        }
+        
+        // function that adds new Element
+        public static void AddElement(string elementName, int categoryId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                db.Elements.Add(new Element()
+                {
+                    CategoryId = categoryId,
+                    ElementName = elementName
+                });
+                db.SaveChanges();
+            }
+        }
+        
+        //function that adds new Attribute to element
+        public static void AddElementAttribute(string name, string type, int elementId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                db.ElementAttributes.Add(new ElementAttribute()
+                {
+                    ElementAttributeName = name,
+                    ElementAttributeType = type,
+                    ElementId = elementId
+                });
+                db.SaveChanges();
+            }
+        }
+
+        // TODO function that returns attribute type for category and element 
         // TODO create function that adds new role
-        // TODO create function that adds new category
         // TODO implement function that delete user from database and all related with it information
     }
 }

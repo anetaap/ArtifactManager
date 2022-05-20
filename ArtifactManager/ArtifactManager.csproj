@@ -57,15 +57,14 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Classes\Validations.cs" />
-        <Compile Include="Classes\Settings.cs" />
         <Compile Include="DataBase\Context\MyDbContext.cs" />
         <Compile Include="DataBase\Context\MyDbContextFunctions.cs" />
-        <Compile Include="DataBase\Model\Attribute.cs" />
+        <Compile Include="DataBase\Model\ArtifactElement.cs" />
         <Compile Include="DataBase\Model\Category.cs" />
         <Compile Include="DataBase\Model\Element.cs" />
-        <Compile Include="DataBase\Model\Instance.cs" />
+        <Compile Include="DataBase\Model\Artifact.cs" />
         <Compile Include="DataBase\Model\Permission.cs" />
-        <Compile Include="DataBase\Model\Property.cs" />
+        <Compile Include="DataBase\Model\ArtifactCategory.cs" />
         <Compile Include="DataBase\Model\Role.cs" />
         <Compile Include="DataBase\Model\User.cs" />
         <Compile Include="Forms\AddEditArtifact.cs">
@@ -80,21 +79,17 @@
         <Compile Include="Forms\Catalog.Designer.cs">
           <DependentUpon>Catalog.cs</DependentUpon>
         </Compile>
-        <Compile Include="Migrations\202205181155375_kurwaXD.cs" />
-        <Compile Include="Migrations\202205181155375_kurwaXD.Designer.cs">
-          <DependentUpon>202205181155375_kurwaXD.cs</DependentUpon>
+        <Compile Include="Migrations\202205200906267_new.cs" />
+        <Compile Include="Migrations\202205200906267_new.Designer.cs">
+          <DependentUpon>202205200906267_new.cs</DependentUpon>
         </Compile>
-        <Compile Include="Migrations\202205181419064_xdddd.cs" />
-        <Compile Include="Migrations\202205181419064_xdddd.Designer.cs">
-          <DependentUpon>202205181419064_xdddd.cs</DependentUpon>
+        <Compile Include="Migrations\202205200921054_e.cs" />
+        <Compile Include="Migrations\202205200921054_e.Designer.cs">
+          <DependentUpon>202205200921054_e.cs</DependentUpon>
         </Compile>
-        <Compile Include="Migrations\202205181930146_KURWA.cs" />
-        <Compile Include="Migrations\202205181930146_KURWA.Designer.cs">
-          <DependentUpon>202205181930146_KURWA.cs</DependentUpon>
-        </Compile>
-        <Compile Include="Migrations\202205182103420_xd.cs" />
-        <Compile Include="Migrations\202205182103420_xd.Designer.cs">
-          <DependentUpon>202205182103420_xd.cs</DependentUpon>
+        <Compile Include="Migrations\202205201127250_artifacts.cs" />
+        <Compile Include="Migrations\202205201127250_artifacts.Designer.cs">
+          <DependentUpon>202205201127250_artifacts.cs</DependentUpon>
         </Compile>
         <Compile Include="Migrations\Configuration.cs" />
         <Compile Include="Program.cs" />
@@ -144,17 +139,14 @@
         <EmbeddedResource Include="Forms\Catalog.resx">
           <DependentUpon>Catalog.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="Migrations\202205181155375_kurwaXD.resx">
-          <DependentUpon>202205181155375_kurwaXD.cs</DependentUpon>
+        <EmbeddedResource Include="Migrations\202205200906267_new.resx">
+          <DependentUpon>202205200906267_new.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="Migrations\202205181419064_xdddd.resx">
-          <DependentUpon>202205181419064_xdddd.cs</DependentUpon>
+        <EmbeddedResource Include="Migrations\202205200921054_e.resx">
+          <DependentUpon>202205200921054_e.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="Migrations\202205181930146_KURWA.resx">
-          <DependentUpon>202205181930146_KURWA.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="Migrations\202205182103420_xd.resx">
-          <DependentUpon>202205182103420_xd.cs</DependentUpon>
+        <EmbeddedResource Include="Migrations\202205201127250_artifacts.resx">
+          <DependentUpon>202205201127250_artifacts.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>

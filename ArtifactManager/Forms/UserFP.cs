@@ -14,7 +14,7 @@ namespace ArtifactManager.Forms
         {
             _frontPage = frontPage;
             _validations = validations;
-            _catalog = new Catalog(_frontPage, this);
+            _catalog = new Catalog(_frontPage, this, _validations);
             _userProfile = new UserProfile(_frontPage, this, _validations);
             InitializeComponent();
         }
