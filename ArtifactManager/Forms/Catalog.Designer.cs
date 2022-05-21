@@ -38,7 +38,7 @@ namespace ArtifactManager.Forms
             this.login = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.mycategory = new System.Windows.Forms.ComboBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.artifact = new System.Windows.Forms.CheckedListBox();
             this.add = new System.Windows.Forms.Button();
             this.remove = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
@@ -86,6 +86,7 @@ namespace ArtifactManager.Forms
             this.category.Name = "category";
             this.category.Size = new System.Drawing.Size(963, 24);
             this.category.TabIndex = 28;
+            this.category.SelectedIndexChanged += new System.EventHandler(this.category_SelectedIndexChanged);
             // 
             // login
             // 
@@ -115,15 +116,16 @@ namespace ArtifactManager.Forms
             this.mycategory.Name = "mycategory";
             this.mycategory.Size = new System.Drawing.Size(963, 24);
             this.mycategory.TabIndex = 30;
+            this.mycategory.SelectedIndexChanged += new System.EventHandler(this.mycategory_SelectedIndexChanged);
             // 
-            // checkedListBox1
+            // artifact
             // 
-            this.checkedListBox1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(140, 345);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(963, 208);
-            this.checkedListBox1.TabIndex = 32;
+            this.artifact.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.artifact.FormattingEnabled = true;
+            this.artifact.Location = new System.Drawing.Point(140, 345);
+            this.artifact.Name = "artifact";
+            this.artifact.Size = new System.Drawing.Size(963, 208);
+            this.artifact.TabIndex = 32;
             // 
             // add
             // 
@@ -135,6 +137,7 @@ namespace ArtifactManager.Forms
             this.add.TabIndex = 35;
             this.add.Text = "Add";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // remove
             // 
@@ -146,6 +149,7 @@ namespace ArtifactManager.Forms
             this.remove.TabIndex = 34;
             this.remove.Text = "Remove";
             this.remove.UseVisualStyleBackColor = true;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
             // edit
             // 
@@ -157,6 +161,7 @@ namespace ArtifactManager.Forms
             this.edit.TabIndex = 33;
             this.edit.Text = "Edit";
             this.edit.UseVisualStyleBackColor = true;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // Catalog
             // 
@@ -167,7 +172,7 @@ namespace ArtifactManager.Forms
             this.Controls.Add(this.add);
             this.Controls.Add(this.remove);
             this.Controls.Add(this.edit);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.artifact);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.mycategory);
             this.Controls.Add(this.login);
@@ -181,11 +186,13 @@ namespace ArtifactManager.Forms
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.CheckedListBox artifact;
+
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button remove;
         private System.Windows.Forms.Button edit;
 
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox artifacts;
 
         private System.Windows.Forms.Label login;
         private System.Windows.Forms.Label label2;

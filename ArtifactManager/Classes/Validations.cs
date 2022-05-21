@@ -11,8 +11,10 @@ namespace ArtifactManager.Classes
     {
         private string _username;
         private string _password;
+        private int _userId;
         public string Username { get => _username; }
         public string Password { get => _password; }
+        public int UserId { get => _userId; }
 
         public string PasswordHash(string password)
         {
@@ -126,6 +128,7 @@ namespace ArtifactManager.Classes
         {
             _username = username;
             _password = MyDbContextFunctions.GetPassword(_username);
+            _userId = MyDbContextFunctions.GetUserId(_username);
         }
         public void Logout()
         {

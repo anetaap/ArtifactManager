@@ -26,6 +26,18 @@ namespace ArtifactManager.DataBase.Context
             }
         }
         
+        // returns user id 
+        public static int GetUserId(string username)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                var user = db.Users
+                    .Single(u => u.Username == username);
+
+                return user.UserId;
+            }
+        }
+        
         // function checks if e-mail address exists in database
         public static bool EmailExist(string email)
         {
@@ -74,7 +86,7 @@ namespace ArtifactManager.DataBase.Context
             }
         }
         
-        //functions gets all the information about user from daatabase
+        //functions gets all the information about user from database
         public static string[] GetInformation(string username)
         {
             using (MyDbContext db = new MyDbContext())
@@ -199,19 +211,41 @@ namespace ArtifactManager.DataBase.Context
                 db.SaveChanges();
             }
         }
-        
-        // function that adds Attribute to Category
-        public static void AddCategoryAttribute(string name, string type, int categoryId)
+        // function that returns categoryId
+        public static int GetCategoryId(string categoryName, string id)
         {
+            int userId = int.Parse(id);
             using (MyDbContext db = new MyDbContext())
             {
-                db.CategoryAttributes.Add(new CategoryAttribute()
+                try
                 {
-                    CategoryAttributeName = name,
-                    CategoryAttributeType = type,
-                    CategoryId = categoryId
-                });
-                db.SaveChanges();
+                    var category = db.Categories
+                        .Single(cat => cat.UserId == userId && cat.CategoryName == categoryName);
+                    return category.CategoryId;
+                }
+                catch (Exception )
+                {
+                    return -1;
+                }
+            }
+        }
+        
+        // function that adds Attribute to Category
+        public static void AddCategoryAttribute(string[] data)
+        {
+            int categoryId = GetCategoryId(data[2], data[3]);
+            if (categoryId != -1)
+            {
+                using (MyDbContext db = new MyDbContext())
+                {
+                    db.CategoryAttributes.Add(new CategoryAttribute()
+                    {
+                        CategoryAttributeName = data[0],
+                        CategoryAttributeType = data[1],
+                        CategoryId = categoryId
+                    });
+                    db.SaveChanges();
+                }
             }
         }
         
@@ -324,43 +358,44 @@ namespace ArtifactManager.DataBase.Context
                 }
             }
         }
+
         // function that returns all the artifact element parameters
-        // public static List<ArtifactElement> GetArtifactElements(int artifactId)
-        // {
-        //     List<ArtifactElement> artifactElements;
-        //     using (MyDbContext db = new MyDbContext())
-        //     {
-        //         try
-        //         {
-        //             artifactElements = db.ArtifactElements
-        //                 .Where(artifact => artifact.ArtifactId == artifactId).ToList();
-        //             return artifactElements;
-        //         }
-        //         catch (Exception )
-        //         {
-        //             return null;
-        //         }
-        //     }
-        // }
+        public static List<UserArtifactAttribute> GetArtifactAttributes(int artifactId)
+        {
+            List<UserArtifactAttribute> artifactAttributes;
+            using (MyDbContext db = new MyDbContext())
+            {
+                try
+                {
+                    artifactAttributes = db.UserArtifactAttributes
+                        .Where(artifact => artifact.ArtifactId == artifactId).ToList();
+                    return artifactAttributes;
+                }
+                catch (Exception )
+                {
+                    return null;
+                }
+            }
+        }
         
-         // function that returns all the artifact category parameters
-        // public static List<UserCategoryAttribute> GetArtifactCategories(int artifactId)
-        // {
-        //     List<UserCategoryAttribute> artifactCategories;
-        //     using (MyDbContext db = new MyDbContext())
-        //     {
-        //         try
-        //         {
-        //             artifactCategories = db.UserCategoryAttribute
-        //                 .Where(artifact => artifact.ArtifactId == artifactId).ToList();
-        //             return artifactCategories;
-        //         }
-        //         catch (Exception )
-        //         {
-        //             return null;
-        //         }
-        //     }
-        // }
+         // function that returns all category parameters
+        public static List<UserCategoryAttribute> GetUserCategoryAttributes(int categoryId)
+        {
+            List<UserCategoryAttribute> categoryAttributes;
+            using (MyDbContext db = new MyDbContext())
+            {
+                try
+                {
+                    categoryAttributes = db.UserCategoryAttributes
+                        .Where(artifact => artifact.UserCategoryId == categoryId).ToList();
+                    return categoryAttributes;
+                }
+                catch (Exception )
+                {
+                    return null;
+                }
+            }
+        }
         
         // function that adds artifact
         public static void AddArtifact(string name, int categoryId, int elementId)
@@ -394,34 +429,35 @@ namespace ArtifactManager.DataBase.Context
         }
         
         // function that updates artifact category parameters
-        // public static void UpdateArtifactCategory(int artifactCategoryId, string value, int attributeId)
-        // {
-        //     using (MyDbContext db = new MyDbContext())
-        //     {
-        //         var artifactCategory = db.ArtifactCategories
-        //             .Single(a => a.ArtifactCategoryId == artifactCategoryId);
-        //
-        //         artifactCategory.CategoryAttributeValue = value;
-        //         artifactCategory.CategoryAttributeId = attributeId;
-        //
-        //         db.SaveChanges();
-        //     }
-        // }
+        public static void UpdateUserCategoryAttribute(int userCategoryAttributeId, string value, int attributeId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                var artifactCategory = db.UserCategoryAttributes
+                    .Single(a => a.UserCategoryAttributeId == userCategoryAttributeId);
         
-        //function that updates artifact element parameters
-        // public static void UpdateArtifactElement(int artifactCategoryId, string value, int attributeId)
-        // {
-        //     using (MyDbContext db = new MyDbContext())
-        //     {
-        //         var artifactElement = db.ArtifactElements
-        //             .Single(a => a.ArtifactElementId == artifactCategoryId);
-        //
-        //         artifactElement.ElementAttributeValue = value;
-        //         artifactElement.ElementAttributeId = attributeId;
-        //
-        //         db.SaveChanges();
-        //     }
-        // }
+                artifactCategory.CategoryAttributeValue = value;
+                artifactCategory.CategoryAttributeId = attributeId;
+        
+                db.SaveChanges();
+            }
+        }
+        
+        //function that updates artifact parameters
+        public static void UpdateArtifactAttributes(int artifactAttributeId, string value, int attributeId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                var artifactElement = db.UserArtifactAttributes
+                    .Single(a => a.UserArtifactAttributeId == artifactAttributeId);
+        
+                artifactElement.ElementAttributeValue = value;
+                artifactElement.ElementAttributeId = attributeId;
+        
+                db.SaveChanges();
+            }
+        }
+        
         // function that removes artifact
         public static void RemoveArtifact(int artifactId)
         {
@@ -435,7 +471,59 @@ namespace ArtifactManager.DataBase.Context
             }
         }
         
+        // function that gets all the artifacts 
+        public static List<Artifact> GetAllArtifactsDesc()
+        {
+            List<Artifact> artifacts;
+            using (MyDbContext db = new MyDbContext())
+            {
+                artifacts = db.Artifacts
+                    .OrderByDescending(a => a.ArtifactId).ToList();
+                return artifacts;
+            }
+        }
+        
+        // function that gets all user the artifacts 
+        public static List<Artifact> GetUserArtifactsDesc(int userId)
+        {
+            List<Artifact> artifacts;
+            using (MyDbContext db = new MyDbContext())
+            {
+                artifacts = db.Artifacts
+                    .Where(art=> art.UserCategory.UserId == userId)
+                    .OrderByDescending(a => a.ArtifactId).ToList();
+                return artifacts;
+            }
+        }
+        
+        // function that add artifact attributes
+        public static void AddArtifactAttribute(int artifactId, int elementAttributeId, string value)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                db.UserArtifactAttributes.Add(new UserArtifactAttribute()
+                {
+                    ArtifactId = artifactId,
+                    ElementAttributeValue = value,
+                    ElementAttributeId = elementAttributeId
+                });
+                db.SaveChanges();
+            }
+        }
+        
+        // function that returns element attributes
+        public static List<ElementAttribute> GetElementAttributes(int elementId)
+        {
+            List<ElementAttribute> elementAttributes;
+            using (MyDbContext db = new MyDbContext())
+            {
+                elementAttributes = db.ElementAttributes
+                    .Where(e => e.ElementId == elementId).ToList();
+
+                return elementAttributes;
+            }
+        }
+
         // TODO create function that adds new role
-        // TODO implement function that delete user from database and all related with it information
     }
 }
