@@ -230,6 +230,25 @@ namespace ArtifactManager.DataBase.Context
             }
         }
         
+        // function that returns category attributes
+        public static List<CategoryAttribute> GetCategoryAttributes(int categoryId)
+        {
+            List<CategoryAttribute> categoryAttributes;
+            using (MyDbContext db = new MyDbContext())
+            {
+                try
+                {
+                    categoryAttributes = db.CategoryAttributes
+                        .Where(cat => cat.CategoryId == categoryId).ToList();
+                    return categoryAttributes;
+                }
+                catch (Exception )
+                {
+                    return null;
+                }
+            }
+        }
+        
         // function that adds Attribute to Category
         public static void AddCategoryAttribute(string[] data)
         {
@@ -523,6 +542,41 @@ namespace ArtifactManager.DataBase.Context
                 elementAttributes = db.ElementAttributes.ToList();
 
                 return elementAttributes;
+            }
+        }
+        
+        // function that adds user category
+        public static int AddUserCategory(int categoryId, string categoryName, int userId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                db.UserCategories.Add(new UserCategory()
+                {
+                    CategoryId = categoryId,
+                    CategoryName = categoryName,
+                    UserId = userId
+                });
+                db.SaveChanges();
+
+                var newUserCategory = db.UserCategories
+                    .Single(c => c.CategoryId == categoryId && c.CategoryName == categoryName
+                                                            && c.UserId == userId);
+                return newUserCategory.UserCategoryId;
+            }
+        }
+
+        // function that adds user category attribute
+        public static void AddUserCategoryAttribute(int categoryAttributeId, int userCategoryId, string value)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                db.UserCategoryAttributes.Add(new UserCategoryAttribute()
+                {
+                    CategoryAttributeId = categoryAttributeId,
+                    CategoryAttributeValue = value,
+                    UserCategoryId = userCategoryId
+                });
+                db.SaveChanges();
             }
         }
     }

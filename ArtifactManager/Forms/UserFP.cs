@@ -14,6 +14,7 @@ namespace ArtifactManager.Forms
         private Validations _validations;
         private Catalog _catalog;
         private AddCategory _addCategory;
+        private AddUserCategory _addUserCategory;
         private List<Artifact> _artifacts;
         public UserFp(FrontPage frontPage, Validations validations)
         {
@@ -22,6 +23,7 @@ namespace ArtifactManager.Forms
             _catalog = new Catalog(_frontPage, this, _validations);
             _userProfile = new UserProfile(_frontPage, this, _validations);
             _addCategory = new AddCategory(_frontPage, this, _validations);
+            _addUserCategory = new AddUserCategory(_frontPage, this, _validations);
             InitializeComponent();
         }
 
@@ -93,6 +95,12 @@ namespace ArtifactManager.Forms
         {
             Hide();
             _addCategory.Show();
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            Hide();
+            _addUserCategory.Show();
         }
     }
 }

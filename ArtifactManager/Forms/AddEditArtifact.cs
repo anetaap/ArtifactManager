@@ -115,7 +115,10 @@ namespace ArtifactManager.Forms
                 string attributeValue = value.Text;
                 string[] informations = {element, attribute, attributeValue};
                 if (!_validations.CompletenessValidation(informations))
+                {
                     MessageBox.Show(@"Enter all required data!");
+                    return;
+                }
                 
                 if (attributeType == "int")
                 {
@@ -137,7 +140,10 @@ namespace ArtifactManager.Forms
                 string attributeValue = value.Text;
                 string[] informations = {attribute, attributeValue};
                 if (!_validations.CompletenessValidation(informations))
+                {
                     MessageBox.Show(@"Enter all required data!");
+                    return;
+                }
 
                 if (attributeType == "int")
                 {

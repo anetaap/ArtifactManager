@@ -41,7 +41,7 @@
             // 
             // sign_in
             // 
-            this.sign_in.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sign_in.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sign_in.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.sign_in.Location = new System.Drawing.Point(1105, 149);
             this.sign_in.Name = "sign_in";
@@ -64,7 +64,7 @@
             // 
             // sign_up
             // 
-            this.sign_up.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sign_up.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sign_up.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.sign_up.Location = new System.Drawing.Point(1258, 149);
             this.sign_up.Name = "sign_up";
@@ -99,7 +99,7 @@
             // 
             this.counter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.counter.FormattingEnabled = true;
-            this.counter.Location = new System.Drawing.Point(1016, 537);
+            this.counter.Location = new System.Drawing.Point(1193, 537);
             this.counter.Name = "counter";
             this.counter.Size = new System.Drawing.Size(45, 24);
             this.counter.TabIndex = 15;

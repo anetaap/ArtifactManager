@@ -52,18 +52,18 @@ namespace ArtifactManager.Forms
             this.topfive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.topfive.FormattingEnabled = true;
             this.topfive.ItemHeight = 20;
-            this.topfive.Location = new System.Drawing.Point(52, 253);
+            this.topfive.Location = new System.Drawing.Point(52, 340);
             this.topfive.Name = "topfive";
-            this.topfive.Size = new System.Drawing.Size(809, 184);
+            this.topfive.Size = new System.Drawing.Size(904, 184);
             this.topfive.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Cambria", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label2.Location = new System.Drawing.Point(64, 171);
+            this.label2.Location = new System.Drawing.Point(64, 258);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(809, 44);
+            this.label2.Size = new System.Drawing.Size(904, 44);
             this.label2.TabIndex = 5;
             this.label2.Text = "TOP 5 ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,16 +74,16 @@ namespace ArtifactManager.Forms
             this.label1.Font = new System.Drawing.Font("Cambria", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label1.Location = new System.Drawing.Point(52, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1307, 162);
+            this.label1.Size = new System.Drawing.Size(1402, 162);
             this.label1.TabIndex = 7;
             this.label1.Text = "Artifact  Manager";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // profile
             // 
-            this.profile.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.profile.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.profile.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.profile.Location = new System.Drawing.Point(1130, 179);
+            this.profile.Location = new System.Drawing.Point(1213, 258);
             this.profile.Name = "profile";
             this.profile.Size = new System.Drawing.Size(133, 44);
             this.profile.TabIndex = 8;
@@ -93,9 +93,9 @@ namespace ArtifactManager.Forms
             // 
             // sign_out
             // 
-            this.sign_out.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sign_out.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sign_out.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.sign_out.Location = new System.Drawing.Point(1292, 179);
+            this.sign_out.Location = new System.Drawing.Point(1375, 258);
             this.sign_out.Name = "sign_out";
             this.sign_out.Size = new System.Drawing.Size(133, 44);
             this.sign_out.TabIndex = 9;
@@ -107,9 +107,9 @@ namespace ArtifactManager.Forms
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Cambria", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label3.Location = new System.Drawing.Point(52, 460);
+            this.label3.Location = new System.Drawing.Point(52, 547);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(809, 44);
+            this.label3.Size = new System.Drawing.Size(904, 44);
             this.label3.TabIndex = 10;
             this.label3.Text = "Lastest added artifacts";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -120,16 +120,16 @@ namespace ArtifactManager.Forms
             this.lastest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.lastest.FormattingEnabled = true;
             this.lastest.ItemHeight = 20;
-            this.lastest.Location = new System.Drawing.Point(52, 525);
+            this.lastest.Location = new System.Drawing.Point(52, 612);
             this.lastest.Name = "lastest";
-            this.lastest.Size = new System.Drawing.Size(809, 184);
+            this.lastest.Size = new System.Drawing.Size(904, 184);
             this.lastest.TabIndex = 11;
             // 
             // counter
             // 
             this.counter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.counter.FormattingEnabled = true;
-            this.counter.Location = new System.Drawing.Point(1130, 480);
+            this.counter.Location = new System.Drawing.Point(1130, 567);
             this.counter.Name = "counter";
             this.counter.Size = new System.Drawing.Size(52, 24);
             this.counter.TabIndex = 12;
@@ -139,7 +139,7 @@ namespace ArtifactManager.Forms
             // 
             this.close.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.close.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.close.Location = new System.Drawing.Point(1350, 12);
+            this.close.Location = new System.Drawing.Point(1445, 12);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 29);
             this.close.TabIndex = 17;
@@ -149,9 +149,9 @@ namespace ArtifactManager.Forms
             // 
             // catalog
             // 
-            this.catalog.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.catalog.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.catalog.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.catalog.Location = new System.Drawing.Point(1130, 318);
+            this.catalog.Location = new System.Drawing.Point(1214, 391);
             this.catalog.Name = "catalog";
             this.catalog.Size = new System.Drawing.Size(295, 44);
             this.catalog.TabIndex = 18;
@@ -161,20 +161,21 @@ namespace ArtifactManager.Forms
             // 
             // add
             // 
-            this.add.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.add.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.add.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.add.Location = new System.Drawing.Point(1130, 405);
+            this.add.Location = new System.Drawing.Point(1214, 502);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(295, 44);
             this.add.TabIndex = 19;
             this.add.Text = "Add Category";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // createcategory
             // 
-            this.createcategory.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createcategory.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.createcategory.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.createcategory.Location = new System.Drawing.Point(1130, 491);
+            this.createcategory.Location = new System.Drawing.Point(1214, 614);
             this.createcategory.Name = "createcategory";
             this.createcategory.Size = new System.Drawing.Size(295, 44);
             this.createcategory.TabIndex = 20;
@@ -184,9 +185,9 @@ namespace ArtifactManager.Forms
             // 
             // createelement
             // 
-            this.createelement.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createelement.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.createelement.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.createelement.Location = new System.Drawing.Point(1130, 575);
+            this.createelement.Location = new System.Drawing.Point(1214, 730);
             this.createelement.Name = "createelement";
             this.createelement.Size = new System.Drawing.Size(295, 44);
             this.createelement.TabIndex = 21;
@@ -198,7 +199,7 @@ namespace ArtifactManager.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1437, 814);
+            this.ClientSize = new System.Drawing.Size(1532, 989);
             this.Controls.Add(this.createelement);
             this.Controls.Add(this.createcategory);
             this.Controls.Add(this.add);

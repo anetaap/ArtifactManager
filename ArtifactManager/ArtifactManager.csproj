@@ -80,11 +80,23 @@
         <Compile Include="Forms\AddEditArtifact.Designer.cs">
           <DependentUpon>AddEditArtifact.cs</DependentUpon>
         </Compile>
+        <Compile Include="Forms\AddUserCategory.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\AddUserCategory.Designer.cs">
+          <DependentUpon>AddUserCategory.cs</DependentUpon>
+        </Compile>
         <Compile Include="Forms\Catalog.cs">
           <SubType>Form</SubType>
         </Compile>
         <Compile Include="Forms\Catalog.Designer.cs">
           <DependentUpon>Catalog.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Forms\CreateElement.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\CreateElement.Designer.cs">
+          <DependentUpon>CreateElement.cs</DependentUpon>
         </Compile>
         <Compile Include="Migrations\202205202022467_new.cs" />
         <Compile Include="Migrations\202205202022467_new.Designer.cs">
@@ -140,6 +152,9 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Forms\AddEditArtifact.resx">
           <DependentUpon>AddEditArtifact.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Forms\AddUserCategory.resx">
+          <DependentUpon>AddUserCategory.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Forms\Catalog.resx">
           <DependentUpon>Catalog.cs</DependentUpon>
