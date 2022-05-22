@@ -360,15 +360,14 @@ namespace ArtifactManager.DataBase.Context
         }
 
         // function that returns all the artifact element parameters
-        public static List<UserArtifactAttribute> GetArtifactAttributes(int artifactId)
+        public static List<UserArtifactAttribute> GetAllArtifactAttributes()
         {
             List<UserArtifactAttribute> artifactAttributes;
             using (MyDbContext db = new MyDbContext())
             {
                 try
                 {
-                    artifactAttributes = db.UserArtifactAttributes
-                        .Where(artifact => artifact.ArtifactId == artifactId).ToList();
+                    artifactAttributes = db.UserArtifactAttributes.ToList();
                     return artifactAttributes;
                 }
                 catch (Exception )
@@ -398,7 +397,7 @@ namespace ArtifactManager.DataBase.Context
         }
         
         // function that adds artifact
-        public static void AddArtifact(string name, int categoryId, int elementId)
+        public static int AddArtifact(string name, int categoryId, int elementId)
         {
             using (MyDbContext db = new MyDbContext())
             {
@@ -409,6 +408,11 @@ namespace ArtifactManager.DataBase.Context
                     ElementId = elementId
                 });
                 db.SaveChanges();
+
+                var newArtifact = db.Artifacts
+                    .Single(a => a.ArtifactName == name && a.UserCategoryId == categoryId 
+                                                       && a.ElementId == elementId);
+                return newArtifact.ArtifactId;
             }
         }
         
@@ -444,7 +448,7 @@ namespace ArtifactManager.DataBase.Context
         }
         
         //function that updates artifact parameters
-        public static void UpdateArtifactAttributes(int artifactAttributeId, string value, int attributeId)
+        public static void UpdateArtifactAttributes(int artifactAttributeId, string value)
         {
             using (MyDbContext db = new MyDbContext())
             {
@@ -452,8 +456,7 @@ namespace ArtifactManager.DataBase.Context
                     .Single(a => a.UserArtifactAttributeId == artifactAttributeId);
         
                 artifactElement.ElementAttributeValue = value;
-                artifactElement.ElementAttributeId = attributeId;
-        
+
                 db.SaveChanges();
             }
         }
@@ -512,18 +515,15 @@ namespace ArtifactManager.DataBase.Context
         }
         
         // function that returns element attributes
-        public static List<ElementAttribute> GetElementAttributes(int elementId)
+        public static List<ElementAttribute> GetAllElementAttributes()
         {
             List<ElementAttribute> elementAttributes;
             using (MyDbContext db = new MyDbContext())
             {
-                elementAttributes = db.ElementAttributes
-                    .Where(e => e.ElementId == elementId).ToList();
+                elementAttributes = db.ElementAttributes.ToList();
 
                 return elementAttributes;
             }
         }
-
-        // TODO create function that adds new role
     }
 }

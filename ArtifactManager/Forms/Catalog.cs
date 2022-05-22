@@ -12,6 +12,7 @@ namespace ArtifactManager.Forms
         private FrontPage _frontPage;
         private UserFp _userFp;
         private Validations _validations;
+        private AddEditArtifact _addEditArtifact;
         private List<Category> _categories;
         private List<UserCategory> _userCategories = new List<UserCategory>();
         private List<Element> _elements = new List<Element>();
@@ -79,8 +80,6 @@ namespace ArtifactManager.Forms
         }
         
         // TODO edit button
-        // TODO add button
-        // TODO displaying artifacts 
         private void edit_Click(object sender, EventArgs e)
         {
             if (artifact.CheckedItems.Count > 1)
@@ -88,7 +87,15 @@ namespace ArtifactManager.Forms
                 MessageBox.Show(@"Choose only one artifact to edit.");
                 return;
             }
-            // TODO create forms to edit category
+            // _addEditArtifact = new AddEditArtifact(_frontPage, this, _validations, artifactId)
+            int index = -1;
+            if (artifact.CheckedIndices.Count > 0) { index = artifact.CheckedIndices[0];}
+            if (index != -1)
+            {
+                var artifact = _artifacts[index];
+                _addEditArtifact = new AddEditArtifact(_frontPage, this, _validations, artifact);
+                _addEditArtifact.Show();
+            }
         }
 
         private void add_Click(object sender, EventArgs e)
@@ -98,8 +105,14 @@ namespace ArtifactManager.Forms
                 MessageBox.Show(@"First choose your category to add artifact.");
                 return;
             }
-            
-            // TODO create forms to add artifact
+
+            int index = mycategory.SelectedIndex;
+            if (index != -1)
+            {
+                var category = _userCategories[index];
+                _addEditArtifact = new AddEditArtifact(_frontPage, this, _validations, category);
+                _addEditArtifact.Show();
+            }
         }
 
         private void remove_Click(object sender, EventArgs e)
@@ -121,51 +134,51 @@ namespace ArtifactManager.Forms
             }
         }
 
-        private void category_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (category.SelectedIndex != -1)
-            {
-                artifact.Items.Clear();
-                int selectedIndex = category.SelectedIndex;
-                int catId = _categories[selectedIndex].CategoryId;
-
-                List<Artifact> list;
-                list = MyDbContextFunctions.GetCategoryArtifacts(catId);
-                if (list != null)
-                {
-                    foreach (Artifact a in list)
-                    {
-                        artifact.Items.Add(a.ArtifactName);
-                    }
-                }
-                foreach (var cat in _userCategories)
-                {
-                    if( cat.CategoryId == catId)
-                        mycategory.Items.Add(cat.CategoryName);
-                }
-            }
-        }
-
-        private void mycategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (mycategory.SelectedIndex != -1)
-            {
-                artifact.Items.Clear();
-                int selectedIndex = mycategory.SelectedIndex;
-                int categoryId = _userCategories[selectedIndex].CategoryId;
-                int userCategoryId = _userCategories[selectedIndex].UserCategoryId;
-                
-                List<Artifact> list;
-                list = MyDbContextFunctions.GetCategoryArtifacts(categoryId);
-                if (list != null)
-                {
-                    foreach (Artifact a in list)
-                    {
-                        if (a.UserCategoryId == userCategoryId)
-                            artifact.Items.Add(a.ArtifactName);
-                    }
-                }
-            }
-        }
+        // private void category_SelectedIndexChanged(object sender, EventArgs e)
+        // {
+        //     if (category.SelectedIndex != -1)
+        //     {
+        //         artifact.Items.Clear();
+        //         int selectedIndex = category.SelectedIndex;
+        //         int catId = _categories[selectedIndex].CategoryId;
+        //
+        //         List<Artifact> list;
+        //         list = MyDbContextFunctions.GetCategoryArtifacts(catId);
+        //         if (list != null)
+        //         {
+        //             foreach (Artifact a in list)
+        //             {
+        //                 artifact.Items.Add(a.ArtifactName);
+        //             }
+        //         }
+        //         foreach (var cat in _userCategories)
+        //         {
+        //             if( cat.CategoryId == catId)
+        //                 mycategory.Items.Add(cat.CategoryName);
+        //         }
+        //     }
+        // }
+        //
+        // private void mycategory_SelectedIndexChanged(object sender, EventArgs e)
+        // {
+        //     if (mycategory.SelectedIndex != -1)
+        //     {
+        //         artifact.Items.Clear();
+        //         int selectedIndex = mycategory.SelectedIndex;
+        //         int categoryId = _userCategories[selectedIndex].CategoryId;
+        //         int userCategoryId = _userCategories[selectedIndex].UserCategoryId;
+        //         
+        //         List<Artifact> list;
+        //         list = MyDbContextFunctions.GetCategoryArtifacts(categoryId);
+        //         if (list != null)
+        //         {
+        //             foreach (Artifact a in list)
+        //             {
+        //                 if (a.UserCategoryId == userCategoryId)
+        //                     artifact.Items.Add(a.ArtifactName);
+        //             }
+        //         }
+        //     }
+        // }
     }
 }

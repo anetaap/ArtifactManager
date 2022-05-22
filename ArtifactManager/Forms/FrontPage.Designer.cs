@@ -76,6 +76,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Cambria", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label2.Location = new System.Drawing.Point(27, 149);
             this.label2.Name = "label2";
@@ -86,7 +87,7 @@
             // 
             // listBox1
             // 
-            this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(27, 210);
@@ -98,7 +99,7 @@
             // 
             this.counter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.counter.FormattingEnabled = true;
-            this.counter.Location = new System.Drawing.Point(814, 537);
+            this.counter.Location = new System.Drawing.Point(1016, 537);
             this.counter.Name = "counter";
             this.counter.Size = new System.Drawing.Size(45, 24);
             this.counter.TabIndex = 15;
@@ -106,7 +107,7 @@
             // 
             // lastest
             // 
-            this.lastest.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lastest.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lastest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.lastest.FormattingEnabled = true;
             this.lastest.ItemHeight = 20;
@@ -117,7 +118,7 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Cambria", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label3.Location = new System.Drawing.Point(27, 517);
             this.label3.Name = "label3";

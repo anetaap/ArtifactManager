@@ -86,7 +86,7 @@ namespace ArtifactManager.Forms
             this.category.Name = "category";
             this.category.Size = new System.Drawing.Size(963, 24);
             this.category.TabIndex = 28;
-            this.category.SelectedIndexChanged += new System.EventHandler(this.category_SelectedIndexChanged);
+            // this.category.SelectedIndexChanged += new System.EventHandler(this.category_SelectedIndexChanged);
             // 
             // login
             // 
@@ -116,7 +116,7 @@ namespace ArtifactManager.Forms
             this.mycategory.Name = "mycategory";
             this.mycategory.Size = new System.Drawing.Size(963, 24);
             this.mycategory.TabIndex = 30;
-            this.mycategory.SelectedIndexChanged += new System.EventHandler(this.mycategory_SelectedIndexChanged);
+            // this.mycategory.SelectedIndexChanged += new System.EventHandler(this.mycategory_SelectedIndexChanged);
             // 
             // artifact
             // 

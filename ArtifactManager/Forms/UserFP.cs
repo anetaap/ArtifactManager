@@ -42,6 +42,7 @@ namespace ArtifactManager.Forms
         private void UserFp_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+            
             _artifacts = MyDbContextFunctions.GetAllArtifactsDesc();
 
             int[] nums = {1, 5, 10, 15};
@@ -72,6 +73,7 @@ namespace ArtifactManager.Forms
         }
         
         // TODO implement Add Category button 
+        // TODO create Create Element button 
         private void counter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (counter.SelectedIndex != -1)

@@ -138,6 +138,9 @@
         <EmbeddedResource Include="Forms\AddCategory.resx">
           <DependentUpon>AddCategory.cs</DependentUpon>
         </EmbeddedResource>
+        <EmbeddedResource Include="Forms\AddEditArtifact.resx">
+          <DependentUpon>AddEditArtifact.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Forms\Catalog.resx">
           <DependentUpon>Catalog.cs</DependentUpon>
         </EmbeddedResource>

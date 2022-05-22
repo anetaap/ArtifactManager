@@ -129,9 +129,9 @@ namespace ArtifactManager.Forms
             // 
             this.counter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.counter.FormattingEnabled = true;
-            this.counter.Location = new System.Drawing.Point(1091, 480);
+            this.counter.Location = new System.Drawing.Point(1130, 480);
             this.counter.Name = "counter";
-            this.counter.Size = new System.Drawing.Size(33, 24);
+            this.counter.Size = new System.Drawing.Size(52, 24);
             this.counter.TabIndex = 12;
             this.counter.SelectedIndexChanged += new System.EventHandler(this.counter_SelectedIndexChanged);
             // 

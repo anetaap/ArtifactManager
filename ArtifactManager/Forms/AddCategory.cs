@@ -11,7 +11,7 @@ namespace ArtifactManager.Forms
         private FrontPage _frontPage;
         private UserFp _userFp;
         private Validations _validations;
-        private string[] _attributesType = {"int", "string", "double"};
+        private string[] _attributesType = {"int", "string"};
         private List<string[]> _categoryAttributes;
 
         public AddCategory(FrontPage frontPage, UserFp userFp, Validations validations)

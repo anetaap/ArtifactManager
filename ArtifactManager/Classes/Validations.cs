@@ -113,6 +113,19 @@ namespace ArtifactManager.Classes
             MyDbContextFunctions.ChangePassword(_username, _password);
         }
 
+        public bool TypeIntParse(string value)
+        {
+            try
+            {
+                int i = int.Parse(value);
+                return true;
+            }
+            catch (Exception )
+            {
+                return false;
+            }
+        }
+
         public void ChangeInformation(string name, string lastname, string email)
         {
             MyDbContextFunctions.ChangeInformation(_username, name, lastname, email);
