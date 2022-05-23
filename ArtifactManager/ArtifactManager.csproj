@@ -159,6 +159,9 @@
         <EmbeddedResource Include="Forms\Catalog.resx">
           <DependentUpon>Catalog.cs</DependentUpon>
         </EmbeddedResource>
+        <EmbeddedResource Include="Forms\CreateElement.resx">
+          <DependentUpon>CreateElement.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Migrations\202205202022467_new.resx">
           <DependentUpon>202205202022467_new.cs</DependentUpon>
         </EmbeddedResource>

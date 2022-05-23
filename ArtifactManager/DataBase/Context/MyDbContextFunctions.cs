@@ -294,6 +294,18 @@ namespace ArtifactManager.DataBase.Context
             }
         }
         
+        // function that returns id of Element
+        public static int GetElementId(string elementName, int categoryId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                var element = db.Elements
+                    .Single(e => e.ElementName == elementName && e.CategoryId == categoryId);
+
+                return element.ElementId;
+            }
+        }
+        
         //function that adds Attribute to element
         public static void AddElementAttribute(string name, string type, int elementId)
         {
@@ -577,6 +589,19 @@ namespace ArtifactManager.DataBase.Context
                     UserCategoryId = userCategoryId
                 });
                 db.SaveChanges();
+            }
+        }
+        
+        // public function that gets all categories which name is "Postać"
+        public static List<Artifact> GetAllCharacters(int userId)
+        {
+            List<Artifact> artifacts;
+            using (MyDbContext db = new MyDbContext())
+            {
+                artifacts = db.Artifacts
+                    .Where(art=> art.UserCategory.UserId == userId)
+                    .OrderByDescending(a => a.ArtifactId).ToList();
+                return artifacts;
             }
         }
     }

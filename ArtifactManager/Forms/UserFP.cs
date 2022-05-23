@@ -15,6 +15,7 @@ namespace ArtifactManager.Forms
         private Catalog _catalog;
         private AddCategory _addCategory;
         private AddUserCategory _addUserCategory;
+        private CreateElement _createElement;
         private List<Artifact> _artifacts;
         public UserFp(FrontPage frontPage, Validations validations)
         {
@@ -24,6 +25,7 @@ namespace ArtifactManager.Forms
             _userProfile = new UserProfile(_frontPage, this, _validations);
             _addCategory = new AddCategory(_frontPage, this, _validations);
             _addUserCategory = new AddUserCategory(_frontPage, this, _validations);
+            _createElement = new CreateElement(_frontPage, this, _validations);
             InitializeComponent();
         }
 
@@ -74,7 +76,6 @@ namespace ArtifactManager.Forms
             _catalog.Show();
         }
         
-        // TODO implement Add Category button 
         // TODO create Create Element button 
         private void counter_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -101,6 +102,12 @@ namespace ArtifactManager.Forms
         {
             Hide();
             _addUserCategory.Show();
+        }
+
+        private void createelement_Click(object sender, EventArgs e)
+        {
+            Hide();
+            _createElement.Show();
         }
     }
 }
