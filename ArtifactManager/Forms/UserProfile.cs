@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using ArtifactManager.Classes;
 using ArtifactManager.DataBase.Context;
+using ArtifactManager.DataBase.Model;
 
 namespace ArtifactManager.Forms
 {
@@ -12,9 +13,11 @@ namespace ArtifactManager.Forms
         private string _username;
         private string _email;
         private string _password;
+        private int _mode;
 
         private FrontPage _frontPage;
         private UserFp _userFp;
+        private AdminFp _adminFp;
         private PasswordChange _passwordChange;
         private Validations _validations;
 
@@ -24,14 +27,26 @@ namespace ArtifactManager.Forms
             _frontPage = frontPage;
             _userFp = userFp;
             _validations = validations;
+            _information = MyDbContextFunctions.GetInformation(_validations.Username);
+            _mode = 0;
 
+            InitializeComponent();
+        }
+        
+        public UserProfile(FrontPage frontPage, AdminFp adminFp, Validations validations)
+        {
+            _frontPage = frontPage;
+            _adminFp = adminFp;
+            _validations = validations;
+            _mode = 1;
+
+            _information = MyDbContextFunctions.GetInformation(_validations.Username);
             InitializeComponent();
         }
 
         private void UserProfile_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-            _information = MyDbContextFunctions.GetInformation(_validations.Username);
 
             name_.Text = _information[0];
             lastname_.Text = _information[1];
@@ -54,8 +69,16 @@ namespace ArtifactManager.Forms
 
         private void back_Click(object sender, EventArgs e)
         {
-            Hide();
-            _userFp.Show();
+            if (_mode == 0)
+            {
+                Hide();
+                _userFp.Show();
+            }
+            else if (_mode == 1)
+            {
+                Hide();
+                _adminFp.Show();
+            }
         }
 
         private void remove_Click(object sender, EventArgs e)
@@ -70,7 +93,7 @@ namespace ArtifactManager.Forms
         private void change_passwd_Click(object sender, EventArgs e)
         {
             _passwordChange = new PasswordChange(this, _validations);
-            
+
             Hide();
             _passwordChange.Show();
         }

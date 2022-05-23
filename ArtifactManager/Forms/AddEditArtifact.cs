@@ -18,7 +18,7 @@ namespace ArtifactManager.Forms
         private int _artifactId;
         private int _elementId;
         private int _categoryId;
-        private bool _mode;
+        private int _mode;
 
         private List<UserArtifactAttribute> _artifactAttributes;
         private List<ElementAttribute> _elementAttributes;
@@ -53,7 +53,8 @@ namespace ArtifactManager.Forms
 
             if (_userCategory != null)
             {
-                _mode = true;
+                // add mode
+                _mode = 0;
                 title.Text = @"Add Artifact Attributes";
                 save.Text = @"Add Attribute";
                 discard.Text = @"Add Artifact";
@@ -67,12 +68,15 @@ namespace ArtifactManager.Forms
             }
             else
             {
-                _mode = false;
-                title.Text = @"Edit Artifact Attributes";
+                // details mode
+                _mode = 1;
+                title.Text = @"Artifact Attributes Details";
                 label1.Visible = false;
                 elements.Visible = false;
                 namelabel.Visible = false;
+                discard.Visible = false;
                 name.Visible = false;
+                value.Enabled = false;
                 _elementId = _artifact.ElementId;
                 _artifactId = _artifact.ArtifactId;
                 List<UserArtifactAttribute> artifactAttributes = MyDbContextFunctions.GetAllArtifactAttributes();
@@ -106,7 +110,7 @@ namespace ArtifactManager.Forms
 
         private void save_Click(object sender, EventArgs e)
         {
-            if (_mode)
+            if (_mode == 0)
             {
                 // add 
                 string element = elements.Text;
@@ -132,7 +136,13 @@ namespace ArtifactManager.Forms
                 int elementAttributeId = _elementAttributes[index].ElementAttributeId;
                 _newAttributes[elementAttributeId] = attributeValue;
             }
-            else
+            else if (_mode == 1)
+            {
+                _mode = 2;
+                value.Enabled = true;
+                save.Text = @"Save Changes";
+            }
+            else if(_mode == 2)
             {
                 // edit 
                 string attribute = attributes.Text;
@@ -162,6 +172,10 @@ namespace ArtifactManager.Forms
                         artifactAttributeId = artifactAttribute.UserArtifactAttributeId;
                 }
                 MyDbContextFunctions.UpdateArtifactAttributes(artifactAttributeId, attributeValue);
+                
+                _mode = 1;
+                value.Enabled = false;
+                save.Text = @"Edit Attribute";
             }
         }
 
@@ -172,6 +186,15 @@ namespace ArtifactManager.Forms
                 int index = attributes.SelectedIndex;
                 string aType = _elementAttributes[index].ElementAttributeType;
                 attrType.Text = aType;
+
+                int elementAttributeId = _elementAttributes[index].ElementAttributeId;
+                foreach (var artifactAttribute in _artifactAttributes)
+                {
+                    if (artifactAttribute.ElementAttributeId == elementAttributeId)
+                    {
+                        value.Text = artifactAttribute.ElementAttributeValue;
+                    }
+                }
             }
         }
 

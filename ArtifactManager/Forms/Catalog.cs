@@ -18,6 +18,7 @@ namespace ArtifactManager.Forms
         private List<Element> _elements = new List<Element>();
         private List<int> _categoriesIds = new List<int>();
         private List<Artifact> _artifacts = new List<Artifact>();
+        private List<UserArtifactAttribute> _artifactAttributes;
 
         public Catalog(FrontPage frontPage, UserFp userFp, Validations validations)
         {
@@ -55,6 +56,7 @@ namespace ArtifactManager.Forms
                 }
             }
 
+            _artifactAttributes = MyDbContextFunctions.GetAllArtifactAttributes();
             List<Artifact> list;
             foreach (UserCategory userCategory in _userCategories)
             {
@@ -136,28 +138,22 @@ namespace ArtifactManager.Forms
         // {
         //     if (category.SelectedIndex != -1)
         //     {
-        //         // artifact.Items.Clear();
-        //         mycategory.Items.Clear();
+        //         artifact.Items.Clear();
         //         int selectedIndex = category.SelectedIndex;
         //         int catId = _categories[selectedIndex].CategoryId;
         //
-        //         // List<Artifact> list;
-        //         // list = MyDbContextFunctions.GetCategoryArtifacts(catId);
-        //         // if (list != null)
-        //         // {
-        //         //     foreach (Artifact a in list)
-        //         //     {
-        //         //         artifact.Items.Add(a.ArtifactName);
-        //         //     }
-        //         // }
-        //         foreach (var cat in _userCategories)
+        //         List<Artifact> list;
+        //         list = MyDbContextFunctions.GetCategoryArtifacts(catId);
+        //         if (list != null)
         //         {
-        //             if( cat.CategoryId == catId)
-        //                 mycategory.Items.Add(cat.CategoryName);
+        //             foreach (Artifact a in list)
+        //             {
+        //                 artifact.Items.Add(a.ArtifactName);
+        //             }
         //         }
         //     }
         // }
-        
+        //
         // private void mycategory_SelectedIndexChanged(object sender, EventArgs e)
         // {
         //     if (mycategory.SelectedIndex != -1)

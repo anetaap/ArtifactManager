@@ -25,6 +25,28 @@ namespace ArtifactManager.DataBase.Context
                 return false;  
             }
         }
+        // function that returns user
+        public static User GetUser(int userId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                var user = db.Users
+                    .Single(u => u.UserId == userId);
+
+                return user;
+            }
+        }
+        
+        // function that returns all users
+        public static List<User> GetAllUsers()
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                var users = db.Users.ToList();
+
+                return users;
+            }
+        }
         
         // returns user id 
         public static int GetUserId(string username)

@@ -41,7 +41,7 @@ namespace ArtifactManager.Forms
             this.artifact = new System.Windows.Forms.CheckedListBox();
             this.add = new System.Windows.Forms.Button();
             this.remove = new System.Windows.Forms.Button();
-            this.edit = new System.Windows.Forms.Button();
+            this.details = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -86,7 +86,6 @@ namespace ArtifactManager.Forms
             this.category.Name = "category";
             this.category.Size = new System.Drawing.Size(963, 24);
             this.category.TabIndex = 28;
-            // this.category.SelectedIndexChanged += new System.EventHandler(this.category_SelectedIndexChanged);
             // 
             // login
             // 
@@ -116,7 +115,6 @@ namespace ArtifactManager.Forms
             this.mycategory.Name = "mycategory";
             this.mycategory.Size = new System.Drawing.Size(963, 24);
             this.mycategory.TabIndex = 30;
-            // this.mycategory.SelectedIndexChanged += new System.EventHandler(this.mycategory_SelectedIndexChanged);
             // 
             // artifact
             // 
@@ -151,17 +149,17 @@ namespace ArtifactManager.Forms
             this.remove.UseVisualStyleBackColor = true;
             this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
-            // edit
+            // details
             // 
-            this.edit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.edit.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.edit.Location = new System.Drawing.Point(140, 577);
-            this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(217, 44);
-            this.edit.TabIndex = 33;
-            this.edit.Text = "Edit";
-            this.edit.UseVisualStyleBackColor = true;
-            this.edit.Click += new System.EventHandler(this.edit_Click);
+            this.details.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.details.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.details.Location = new System.Drawing.Point(140, 577);
+            this.details.Name = "details";
+            this.details.Size = new System.Drawing.Size(217, 44);
+            this.details.TabIndex = 33;
+            this.details.Text = "Details";
+            this.details.UseVisualStyleBackColor = true;
+            this.details.Click += new System.EventHandler(this.edit_Click);
             // 
             // Catalog
             // 
@@ -171,7 +169,7 @@ namespace ArtifactManager.Forms
             this.ClientSize = new System.Drawing.Size(1258, 677);
             this.Controls.Add(this.add);
             this.Controls.Add(this.remove);
-            this.Controls.Add(this.edit);
+            this.Controls.Add(this.details);
             this.Controls.Add(this.artifact);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.mycategory);
@@ -190,7 +188,7 @@ namespace ArtifactManager.Forms
 
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button remove;
-        private System.Windows.Forms.Button edit;
+        private System.Windows.Forms.Button details;
 
         private System.Windows.Forms.CheckedListBox artifacts;
 

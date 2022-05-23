@@ -76,7 +76,6 @@ namespace ArtifactManager.Forms
             _catalog.Show();
         }
         
-        // TODO create Create Element button 
         private void counter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (counter.SelectedIndex != -1)

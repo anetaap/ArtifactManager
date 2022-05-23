@@ -17,7 +17,6 @@ namespace ArtifactManager.Forms
         public PasswordChange(UserProfile userProfile, Validations validations)
         {
             _userProfile = userProfile;
-
             _validations = validations;
             InitializeComponent();
         }

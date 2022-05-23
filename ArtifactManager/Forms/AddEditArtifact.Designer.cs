@@ -152,7 +152,7 @@ namespace ArtifactManager.Forms
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(1163, 43);
             this.save.TabIndex = 41;
-            this.save.Text = "Save Changes";
+            this.save.Text = "Edit Attribute";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
@@ -200,7 +200,7 @@ namespace ArtifactManager.Forms
             // 
             this.attrType.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.attrType.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.attrType.Location = new System.Drawing.Point(137, 339);
+            this.attrType.Location = new System.Drawing.Point(137, 341);
             this.attrType.Name = "attrType";
             this.attrType.Size = new System.Drawing.Size(1163, 27);
             this.attrType.TabIndex = 47;

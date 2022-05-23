@@ -156,6 +156,9 @@
         <EmbeddedResource Include="Forms\AddUserCategory.resx">
           <DependentUpon>AddUserCategory.cs</DependentUpon>
         </EmbeddedResource>
+        <EmbeddedResource Include="Forms\AdminFP.resx">
+          <DependentUpon>AdminFP.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Forms\Catalog.resx">
           <DependentUpon>Catalog.cs</DependentUpon>
         </EmbeddedResource>
