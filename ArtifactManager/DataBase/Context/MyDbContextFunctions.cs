@@ -228,7 +228,7 @@ namespace ArtifactManager.DataBase.Context
                 try
                 {
                     categories = db.Categories
-                        .Where(category => category.UserId == id).ToList();
+                        .Where(category => category.UserId == id || category.UserId == 0).ToList();
                     return categories;
                 }
                 catch (Exception )
@@ -474,20 +474,20 @@ namespace ArtifactManager.DataBase.Context
         }
         
         // function that adds artifact
-        public static int AddArtifact(string name, int categoryId, int elementId)
+        public static int AddArtifact(string name, int userCategoryId, int elementId)
         {
             using (MyDbContext db = new MyDbContext())
             {
                 db.Artifacts.Add(new Artifact()
                 {
                     ArtifactName = name,
-                    UserCategoryId = categoryId,
+                    UserCategoryId = userCategoryId,
                     ElementId = elementId
                 });
                 db.SaveChanges();
 
                 var newArtifact = db.Artifacts
-                    .Single(a => a.ArtifactName == name && a.UserCategoryId == categoryId 
+                    .Single(a => a.ArtifactName == name && a.UserCategoryId == userCategoryId 
                                                        && a.ElementId == elementId);
                 return newArtifact.ArtifactId;
             }
@@ -672,6 +672,66 @@ namespace ArtifactManager.DataBase.Context
                 if (user.RoleId == 1) user.RoleId = 2;
                 else user.RoleId = 1;
                 db.SaveChanges();
+            }
+        }
+
+        // function that gets all characters 
+        public static Dictionary<string, string> GetAllCharacters()
+        {
+            Dictionary<string, string> charactersPower = new Dictionary<string, string>();
+            List<UserCategory> category;
+            List<Artifact> characters;
+            List<UserArtifactAttribute> charactersAttribute;
+            using (MyDbContext db = new MyDbContext())
+            {
+                category = db.UserCategories
+                    .Where(c => c.CategoryId == 2).ToList();
+
+                foreach (var cat in category)
+                {
+                    characters = db.Artifacts
+                        .Where(a => a.UserCategoryId == cat.UserCategoryId).ToList();
+                    foreach (var character in characters)
+                    {
+                        charactersAttribute = db.UserArtifactAttributes
+                            .Where(a => a.ArtifactId == character.ArtifactId).ToList();
+                        foreach (var attribute in charactersAttribute)
+                        {
+                            charactersPower[character.ArtifactName] = attribute.ElementAttributeValue;
+                        }
+                    }
+                }
+                return charactersPower;
+            }
+        }
+        
+        // function that gets all characters 
+        public static Dictionary<string, string> GetAllUserCharacters(int userId)
+        {
+            Dictionary<string, string> charactersPower = new Dictionary<string, string>();
+            List<UserCategory> category;
+            List<Artifact> characters;
+            List<UserArtifactAttribute> charactersAttribute;
+            using (MyDbContext db = new MyDbContext())
+            {
+                category = db.UserCategories
+                    .Where(c => c.CategoryId == 2 && c.UserId == userId).ToList();
+
+                foreach (var cat in category)
+                {
+                    characters = db.Artifacts
+                        .Where(a => a.UserCategoryId == cat.UserCategoryId).ToList();
+                    foreach (var character in characters)
+                    {
+                        charactersAttribute = db.UserArtifactAttributes
+                            .Where(a => a.ArtifactId == character.ArtifactId).ToList();
+                        foreach (var attribute in charactersAttribute)
+                        {
+                            charactersPower[character.ArtifactName] = attribute.ElementAttributeValue;
+                        }
+                    }
+                }
+                return charactersPower;
             }
         }
     }

@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.sign_up = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.top = new System.Windows.Forms.ListBox();
             this.counter = new System.Windows.Forms.ComboBox();
             this.lastest = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -86,15 +86,16 @@
             this.label2.Text = "TOP 5 ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // listBox1
+            // top
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(27, 210);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(832, 260);
-            this.listBox1.TabIndex = 4;
+            this.top.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.top.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.top.FormattingEnabled = true;
+            this.top.ItemHeight = 29;
+            this.top.Location = new System.Drawing.Point(27, 210);
+            this.top.Name = "top";
+            this.top.Size = new System.Drawing.Size(832, 236);
+            this.top.TabIndex = 4;
             // 
             // counter
             // 
@@ -109,12 +110,12 @@
             // lastest
             // 
             this.lastest.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lastest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.lastest.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.lastest.FormattingEnabled = true;
-            this.lastest.ItemHeight = 20;
+            this.lastest.ItemHeight = 29;
             this.lastest.Location = new System.Drawing.Point(27, 576);
             this.lastest.Name = "lastest";
-            this.lastest.Size = new System.Drawing.Size(832, 264);
+            this.lastest.Size = new System.Drawing.Size(832, 236);
             this.lastest.TabIndex = 14;
             // 
             // label3
@@ -150,7 +151,7 @@
             this.Controls.Add(this.counter);
             this.Controls.Add(this.lastest);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.top);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.sign_up);
             this.Controls.Add(this.label1);
@@ -167,7 +168,7 @@
         private System.Windows.Forms.ListBox lastest;
         private System.Windows.Forms.Label label3;
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox top;
 
         private System.Windows.Forms.Label label2;
 

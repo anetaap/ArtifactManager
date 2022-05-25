@@ -18,6 +18,7 @@ namespace ArtifactManager.Forms
         private int _artifactId;
         private int _elementId;
         private int _categoryId;
+        private int _userCategoryId;
         private int _mode;
         private bool _logged = true;
 
@@ -35,6 +36,7 @@ namespace ArtifactManager.Forms
             _artifact = artifact;
             _logged = logged;
             InitializeComponent();
+            InitWall();
         }
         public AddEditArtifact(FrontPage frontPage, Catalog catalog, Validations validations, UserCategory userCategory)
         {
@@ -45,64 +47,16 @@ namespace ArtifactManager.Forms
             _elementIds = new List<int>();
             _newAttributes = new Dictionary<int, string>();
             InitializeComponent();
+            InitWall();
         }
         private void AddEditArtifact_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-
-            if (_logged == false) save.Visible = false;
-
-            _elementAttributes = new List<ElementAttribute>();
-            List <ElementAttribute> elementAttributes = MyDbContextFunctions.GetAllElementAttributes();
-            
-
-            if (_userCategory != null)
-            {
-                // add mode
-                _mode = 0;
-                title.Text = @"Add Artifact Attributes";
-                save.Text = @"Add Attribute";
-                discard.Text = @"Add Artifact";
-                _categoryId = _userCategory.CategoryId;
-                _elements = MyDbContextFunctions.GetCategoryElements(_categoryId); // all elements
-                foreach (var element in _elements)
-                {
-                    elements.Items.Add(element.ElementName);
-                    _elementIds.Add(element.ElementId);
-                }
-            }
-            else
-            {
-                // details mode
-                _mode = 1;
-                title.Text = @"Artifact Attributes Details";
-                label1.Visible = false;
-                elements.Visible = false;
-                namelabel.Visible = false;
-                discard.Visible = false;
-                name.Visible = false;
-                value.Enabled = false;
-                _elementId = _artifact.ElementId;
-                _artifactId = _artifact.ArtifactId;
-                List<UserArtifactAttribute> artifactAttributes = MyDbContextFunctions.GetAllArtifactAttributes();
-                _artifactAttributes = new List<UserArtifactAttribute>();
-                foreach (var attribute in elementAttributes)
-                {
-                    if (attribute.ElementId == _elementId)
-                    {
-                        _elementAttributes.Add(attribute);
-                        attributes.Items.Add(attribute.ElementAttributeName);
-                    }
-                }
-                foreach (var attribute in artifactAttributes)
-                {
-                    if (attribute.ArtifactId == _artifactId) { _artifactAttributes.Add(attribute); }
-                }
-            }
         }
         private void back_Click(object sender, EventArgs e)
         {
             Hide();
+            _catalog.InitWall();
             _catalog.Show();
             Clean();
         }
@@ -193,12 +147,15 @@ namespace ArtifactManager.Forms
                 attrType.Text = aType;
 
                 int elementAttributeId = _elementAttributes[index].ElementAttributeId;
-                foreach (var artifactAttribute in _artifactAttributes)
+                if (_artifactAttributes != null)
                 {
-                    if (artifactAttribute.ElementAttributeId == elementAttributeId)
+                    foreach (var artifactAttribute in _artifactAttributes)
                     {
-                        value.Text = artifactAttribute.ElementAttributeValue;
-                    }
+                        if (artifactAttribute.ElementAttributeId == elementAttributeId)
+                        {
+                            value.Text = artifactAttribute.ElementAttributeValue;
+                        }
+                    }   
                 }
             }
         }
@@ -234,7 +191,7 @@ namespace ArtifactManager.Forms
                 MessageBox.Show(@"Enter Artifact name!");
                 return;
             }
-            int artifactId = MyDbContextFunctions.AddArtifact(artifactName, _categoryId, _elementId);
+            int artifactId = MyDbContextFunctions.AddArtifact(artifactName, _userCategoryId, _elementId);
             foreach (KeyValuePair<int,string> newAttribute in _newAttributes)
             {
                 int elementAttributeId = newAttribute.Key;
@@ -244,6 +201,62 @@ namespace ArtifactManager.Forms
             }
 
             MessageBox.Show(@"Category successfully added.");
+        }
+
+        private void InitWall()
+        {
+            if (_logged == false) save.Visible = false;
+
+            _elementAttributes = new List<ElementAttribute>();
+            List <ElementAttribute> elementAttributes = MyDbContextFunctions.GetAllElementAttributes();
+            
+
+            if (_userCategory != null)
+            {
+                // add mode
+                _mode = 0;
+                attrType.ReadOnly = true;
+                title.Text = @"Add Artifact Attributes";
+                save.Text = @"Add Attribute";
+                discard.Text = @"Add Artifact";
+                _categoryId = _userCategory.CategoryId;
+                _userCategoryId = _userCategory.UserCategoryId;
+                _elements = MyDbContextFunctions.GetCategoryElements(_categoryId); // all elements
+                foreach (var element in _elements)
+                {
+                    elements.Items.Add(element.ElementName);
+                    _elementIds.Add(element.ElementId);
+                }
+            }
+            else
+            {
+                // details mode
+                _mode = 1;
+                title.Text = @"Artifact Attributes Details";
+                label1.Visible = false;
+                elements.Visible = false;
+                namelabel.Visible = false;
+                discard.Visible = false;
+                name.Visible = false;
+                value.Enabled = false;
+                attrType.ReadOnly = true;
+                _elementId = _artifact.ElementId;
+                _artifactId = _artifact.ArtifactId;
+                List<UserArtifactAttribute> artifactAttributes = MyDbContextFunctions.GetAllArtifactAttributes();
+                _artifactAttributes = new List<UserArtifactAttribute>();
+                foreach (var attribute in elementAttributes)
+                {
+                    if (attribute.ElementId == _elementId)
+                    {
+                        _elementAttributes.Add(attribute);
+                        attributes.Items.Add(attribute.ElementAttributeName);
+                    }
+                }
+                foreach (var attribute in artifactAttributes)
+                {
+                    if (attribute.ArtifactId == _artifactId) { _artifactAttributes.Add(attribute); }
+                }
+            }
         }
     }
 }
