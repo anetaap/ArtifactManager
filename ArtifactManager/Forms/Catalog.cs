@@ -14,11 +14,12 @@ namespace ArtifactManager.Forms
         private Validations _validations;
         private AddEditArtifact _addEditArtifact;
         private List<Category> _categories;
+        private List<CategoryAttribute> _categoryAttributes;
         private List<UserCategory> _userCategories = new List<UserCategory>();
         private List<Element> _elements = new List<Element>();
         private List<int> _categoriesIds = new List<int>();
         private List<Artifact> _artifacts = new List<Artifact>();
-        private List<UserArtifactAttribute> _artifactAttributes;
+        private List<UserCategoryAttribute> _userCategoryAttributes;
         private List<Artifact> _visibleArtifact;
 
         private bool _mode;
@@ -49,6 +50,7 @@ namespace ArtifactManager.Forms
         private void back_Click(object sender, EventArgs e)
         {
             Hide();
+            Clean();
             if (_mode) { _userFp.Show(); }
             else { _frontPage.Show();}
             
@@ -118,6 +120,7 @@ namespace ArtifactManager.Forms
             if (category.SelectedIndex != -1)
             {
                 artifact.Items.Clear();
+                attributes.Items.Clear();
                 _visibleArtifact.Clear();
                 int selectedIndex = category.SelectedIndex;
                 int catId = _categories[selectedIndex].CategoryId;
@@ -141,10 +144,25 @@ namespace ArtifactManager.Forms
             {
                 artifact.Items.Clear();
                 _visibleArtifact.Clear();
+                attributes.Items.Clear();
                 int selectedIndex = mycategory.SelectedIndex;
                 int categoryId = _userCategories[selectedIndex].CategoryId;
                 int userCategoryId = _userCategories[selectedIndex].UserCategoryId;
-                
+                _categoryAttributes = MyDbContextFunctions.GetCategoryAttributes(categoryId);
+                _userCategoryAttributes = MyDbContextFunctions.GetUserCategoryAttributes(userCategoryId);
+                foreach (var attribute in _userCategoryAttributes)
+                {
+                    int categoryAttributeId = attribute.CategoryAttributeId;
+                    foreach (var categoryAttribute in _categoryAttributes)
+                    {
+                        if (categoryAttribute.CategoryAttributeId == categoryAttributeId)
+                        {
+                            string inf =
+                                $"{categoryAttribute.CategoryAttributeName}: {attribute.CategoryAttributeValue}";
+                            attributes.Items.Add(inf);
+                        }
+                    }
+                }
                 List<Artifact> list;
                 list = MyDbContextFunctions.GetCategoryArtifacts(categoryId);
                 if (list != null)
@@ -197,7 +215,6 @@ namespace ArtifactManager.Forms
                 }
             }
             
-            _artifactAttributes = MyDbContextFunctions.GetAllArtifactAttributes();
             List<Artifact> list;
             foreach (UserCategory userCategory in _userCategories)
             {
@@ -210,6 +227,13 @@ namespace ArtifactManager.Forms
             }
 
             _visibleArtifact = _artifacts;
+        }
+
+        private void Clean()
+        {
+            attributes.Items.Clear();
+            category.Text = "";
+            mycategory.Text = "";
         }
     }
 }
