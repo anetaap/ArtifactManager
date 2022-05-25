@@ -11,12 +11,14 @@ namespace ArtifactManager.Forms
     {
         private SignIn _signIn;
         private SignUp _signUp;
+        private Catalog _catalog;
 
         private List<Artifact> _artifacts;
         public FrontPage()
         {
             _signIn = new SignIn(this);
             _signUp = new SignUp(this, _signIn);
+            _catalog = new Catalog(this);
             InitializeComponent();
         }
 
@@ -65,6 +67,12 @@ namespace ArtifactManager.Forms
                     lastest.Items.Add(_artifacts[i].ArtifactName);
                 }
             }
+        }
+
+        private void catalog_Click(object sender, EventArgs e)
+        {
+            Hide();
+            _catalog.Show();
         }
     }
 }

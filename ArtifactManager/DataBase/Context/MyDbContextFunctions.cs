@@ -196,6 +196,24 @@ namespace ArtifactManager.DataBase.Context
             }
         }
         
+        // function that returns all categories
+        public static List<Category> GetAllCategories()
+        {
+            List<Category> categories;
+            using (MyDbContext db = new MyDbContext())
+            {
+                try
+                {
+                    categories = db.Categories.ToList();
+                    return categories;
+                }
+                catch (Exception )
+                {
+                    return null;
+                }
+            }
+        }
+        
         // function that returns all the users categories
         public static List<Category> GetUserCategories(string username)
         {
@@ -289,19 +307,7 @@ namespace ArtifactManager.DataBase.Context
                 }
             }
         }
-        
-        // function that returns category Attribute type
-        public static string CategoryAttributeType(int categoryAttributeId)
-        {
-            using (MyDbContext db = new MyDbContext())
-            {
-                var attribute = db.CategoryAttributes
-                    .Single(a => a.CategoryAttributeId == categoryAttributeId);
 
-                return attribute.CategoryAttributeType;
-            }
-        }
-        
         // function that adds new Element
         public static void AddElement(string elementName, int categoryId)
         {
@@ -384,6 +390,24 @@ namespace ArtifactManager.DataBase.Context
                 {
                     userCategories = db.UserCategories
                         .Where(cat => cat.UserId == userId).ToList();
+                    return userCategories;
+                }
+                catch (Exception )
+                {
+                    return null;
+                }
+            }
+        }
+        
+        // function that returns all users categories 
+        public static List<UserCategory> GetAllUserCategories()
+        {
+            List<UserCategory> userCategories;
+            using (MyDbContext db = new MyDbContext())
+            {
+                try
+                {
+                    userCategories = db.UserCategories.ToList();
                     return userCategories;
                 }
                 catch (Exception )
@@ -624,6 +648,30 @@ namespace ArtifactManager.DataBase.Context
                     .Where(art=> art.UserCategory.UserId == userId)
                     .OrderByDescending(a => a.ArtifactId).ToList();
                 return artifacts;
+            }
+        }
+        
+        // function that returns user role name
+        public static string GetUserRoleName(int userId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                var user = db.Users
+                    .Single(u => u.UserId == userId);
+                return user.Role.RoleName;
+            } 
+        }
+        // function update role
+        public static void ChangeRole(int userId)
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                var user = db.Users
+                    .Single(u => u.UserId == userId);
+
+                if (user.RoleId == 1) user.RoleId = 2;
+                else user.RoleId = 1;
+                db.SaveChanges();
             }
         }
     }

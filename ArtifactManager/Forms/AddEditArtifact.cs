@@ -19,18 +19,21 @@ namespace ArtifactManager.Forms
         private int _elementId;
         private int _categoryId;
         private int _mode;
+        private bool _logged = true;
 
         private List<UserArtifactAttribute> _artifactAttributes;
         private List<ElementAttribute> _elementAttributes;
         private List<Element> _elements;
         private List<int> _elementIds;
         private Dictionary<int, string> _newAttributes;
-        public AddEditArtifact(FrontPage frontPage, Catalog catalog, Validations validations, Artifact artifact)
+        public AddEditArtifact(FrontPage frontPage, Catalog catalog, Validations validations, Artifact artifact, 
+            bool logged )
         {
             _frontPage = frontPage;
             _catalog = catalog;
             _validations = validations;
             _artifact = artifact;
+            _logged = logged;
             InitializeComponent();
         }
         public AddEditArtifact(FrontPage frontPage, Catalog catalog, Validations validations, UserCategory userCategory)
@@ -46,6 +49,8 @@ namespace ArtifactManager.Forms
         private void AddEditArtifact_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+
+            if (_logged == false) save.Visible = false;
 
             _elementAttributes = new List<ElementAttribute>();
             List <ElementAttribute> elementAttributes = MyDbContextFunctions.GetAllElementAttributes();

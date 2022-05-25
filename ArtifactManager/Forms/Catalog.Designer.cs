@@ -86,6 +86,7 @@ namespace ArtifactManager.Forms
             this.category.Name = "category";
             this.category.Size = new System.Drawing.Size(963, 24);
             this.category.TabIndex = 28;
+            this.category.SelectedIndexChanged += new System.EventHandler(this.category_SelectedIndexChanged);
             // 
             // login
             // 
@@ -115,14 +116,15 @@ namespace ArtifactManager.Forms
             this.mycategory.Name = "mycategory";
             this.mycategory.Size = new System.Drawing.Size(963, 24);
             this.mycategory.TabIndex = 30;
+            this.mycategory.SelectedIndexChanged += new System.EventHandler(this.mycategory_SelectedIndexChanged);
             // 
             // artifact
             // 
             this.artifact.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.artifact.FormattingEnabled = true;
-            this.artifact.Location = new System.Drawing.Point(140, 345);
+            this.artifact.Location = new System.Drawing.Point(140, 413);
             this.artifact.Name = "artifact";
-            this.artifact.Size = new System.Drawing.Size(963, 208);
+            this.artifact.Size = new System.Drawing.Size(963, 140);
             this.artifact.TabIndex = 32;
             // 
             // add

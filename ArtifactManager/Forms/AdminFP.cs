@@ -13,8 +13,9 @@ namespace ArtifactManager.Forms
         private FrontPage _frontPage;
         private Validations _validations;
         private UserProfile _userProfile;
+        private int _userid;
 
-            private List<User> _users;
+        private List<User> _users;
         public AdminFp(FrontPage frontPage, Validations validations)
         {
             _frontPage = frontPage;
@@ -28,18 +29,19 @@ namespace ArtifactManager.Forms
         {
             foreach (var user in _users)
             {
-                users.Items.Add(user.Username);
+                string role = MyDbContextFunctions.GetUserRoleName(user.UserId);
+                users.Items.Add($"Username: {user.Username}, Rola: {role}");
             }
         }
 
         private void add_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
-        }
-
-        private void remove_Click(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
+            if (users.SelectedIndex != -1)
+            {
+                MyDbContextFunctions.ChangeRole(_userid);
+                users.Items.Clear();
+                Display();
+            }
         }
 
         private void details_Click(object sender, EventArgs e)
@@ -71,6 +73,16 @@ namespace ArtifactManager.Forms
             
             Hide();
             _frontPage.Show();
+        }
+
+        private void users_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = users.SelectedIndex;
+            if (index != -1)
+            {
+                var user = _users[index];
+                _userid = user.UserId;
+            }
         }
     }
 }

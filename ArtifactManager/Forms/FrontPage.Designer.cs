@@ -37,13 +37,14 @@
             this.counter = new System.Windows.Forms.ComboBox();
             this.lastest = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.catalog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // sign_in
             // 
             this.sign_in.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sign_in.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.sign_in.Location = new System.Drawing.Point(1105, 149);
+            this.sign_in.Location = new System.Drawing.Point(1096, 149);
             this.sign_in.Name = "sign_in";
             this.sign_in.Size = new System.Drawing.Size(133, 44);
             this.sign_in.TabIndex = 0;
@@ -127,12 +128,25 @@
             this.label3.Text = "Lastest added artifacts";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // catalog
+            // 
+            this.catalog.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.catalog.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.catalog.Location = new System.Drawing.Point(1096, 426);
+            this.catalog.Name = "catalog";
+            this.catalog.Size = new System.Drawing.Size(295, 44);
+            this.catalog.TabIndex = 19;
+            this.catalog.Text = "Catalog";
+            this.catalog.UseVisualStyleBackColor = true;
+            this.catalog.Click += new System.EventHandler(this.catalog_Click);
+            // 
             // FrontPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1408, 888);
+            this.Controls.Add(this.catalog);
             this.Controls.Add(this.counter);
             this.Controls.Add(this.lastest);
             this.Controls.Add(this.label3);
@@ -146,6 +160,8 @@
             this.Load += new System.EventHandler(this.FrontPage_Load);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button catalog;
 
         private System.Windows.Forms.ComboBox counter;
         private System.Windows.Forms.ListBox lastest;
