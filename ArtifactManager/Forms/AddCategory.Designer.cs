@@ -51,6 +51,7 @@ namespace ArtifactManager.Forms
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Cambria Math", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(0, -79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1192, 182);
@@ -72,6 +73,7 @@ namespace ArtifactManager.Forms
             // 
             this.login.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.login.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.login.Location = new System.Drawing.Point(204, 129);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(684, 29);
@@ -118,6 +120,7 @@ namespace ArtifactManager.Forms
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(204, 229);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(684, 29);
@@ -168,6 +171,7 @@ namespace ArtifactManager.Forms
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(204, 304);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(684, 29);

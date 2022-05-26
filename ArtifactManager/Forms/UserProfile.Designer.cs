@@ -64,6 +64,7 @@ namespace ArtifactManager.Forms
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Cambria Math", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(-22, -39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1369, 162);
@@ -133,6 +134,7 @@ namespace ArtifactManager.Forms
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(257, 395);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(684, 29);
@@ -153,6 +155,7 @@ namespace ArtifactManager.Forms
             // 
             this.login.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.login.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.login.Location = new System.Drawing.Point(257, 299);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(684, 29);
@@ -183,6 +186,7 @@ namespace ArtifactManager.Forms
             // 
             this.lastname.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lastname.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lastname.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lastname.Location = new System.Drawing.Point(656, 211);
             this.lastname.Name = "lastname";
             this.lastname.Size = new System.Drawing.Size(374, 29);
@@ -193,6 +197,7 @@ namespace ArtifactManager.Forms
             // 
             this.name.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.name.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.name.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.name.Location = new System.Drawing.Point(257, 211);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(314, 29);

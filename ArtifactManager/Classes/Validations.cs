@@ -81,7 +81,10 @@ namespace ArtifactManager.Classes
             {
                 MailAddress emailaddress = new MailAddress(email);
 
-                if (MyDbContextFunctions.EmailOfUser(email) == _username) return true;
+                // if (MyDbContextFunctions.EmailOfUser(email) == _username) 
+                //     
+                
+                return true;
             }
             catch (FormatException)
             {

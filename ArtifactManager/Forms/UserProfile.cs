@@ -27,10 +27,11 @@ namespace ArtifactManager.Forms
             _frontPage = frontPage;
             _userFp = userFp;
             _validations = validations;
-            _information = MyDbContextFunctions.GetInformation(_validations.Username);
+            // _information = MyDbContextFunctions.GetInformation(_validations.Username);
             _mode = 0;
 
             InitializeComponent();
+            InitWall();
         }
         
         public UserProfile(FrontPage frontPage, AdminFp adminFp, Validations validations)
@@ -39,15 +40,18 @@ namespace ArtifactManager.Forms
             _adminFp = adminFp;
             _validations = validations;
             _mode = 1;
-
-            _information = MyDbContextFunctions.GetInformation(_validations.Username);
             InitializeComponent();
+            InitWall();
         }
 
         private void UserProfile_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+        }
 
+        private void InitWall()
+        {
+            _information = MyDbContextFunctions.GetInformation(_validations.Username);
             name_.Text = _information[0];
             lastname_.Text = _information[1];
             username.Text = _information[2];
@@ -130,12 +134,12 @@ namespace ArtifactManager.Forms
             }
             
             _validations.ChangeInformation(_name, _lastname, _email);
-            UserProfile_Load(sender, e);
+            InitWall();
         }
 
         private void discard_Click(object sender, EventArgs e)
         {
-            UserProfile_Load(sender, e);
+            InitWall();
         }
     }
 }
